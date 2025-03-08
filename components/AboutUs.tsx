@@ -10,16 +10,16 @@ export default function AboutUs() {
   const skills = [
     { name: "Web Development", percentage: 92 },
     { name: "UI/UX Design", percentage: 88 },
-    { name: "Video Editing", percentage: 85 },
+    { name: "Maintenece", percentage: 85 },
     { name: "Branding", percentage: 77 },
   ];
 
   // Stats data
   const stats = [
-    { number: "20+", label: "Years of Experience" },
-    { number: "1,000+", label: "Projects Done" },
-    { number: "300+", label: "Satisfied Clients" },
-    { number: "64", label: "Certified Awards" },
+    { number: "2+", label: "Years of Experience" },
+    { number: "30+", label: "Projects Done" },
+    { number: "20+", label: "Satisfied Clients" },
+    { number: "3", label: "Certifications Completed" } 
   ];
 
   return (
@@ -107,11 +107,7 @@ export default function AboutUs() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 py-8 px-4 md:px-8 text-center text-gray-400">
-        <div className="max-w-7xl mx-auto">
-          <p>&copy; {new Date().getFullYear()} Your Company. All rights reserved.</p>
-        </div>
-      </footer>
+     
     </div>
   );
 }

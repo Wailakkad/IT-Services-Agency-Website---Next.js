@@ -1,8 +1,22 @@
-import React from 'react'
-import Logoimg from "../assets/programming (2).png"
-import Image from 'next/image'
+"use client";
+
+import React from 'react';
+import Logoimg from "../assets/programming (2).png";
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Header = () => {
+  // Function to handle smooth scrolling
+  const scrollToSection = (sectionId : string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - 25, // Offset for header height
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className='sticky top-0 z-50'>
       <div className='flex items-center justify-between px-6 md:px-12 py-4 backdrop-blur-sm bg-black/10'>
@@ -24,36 +38,59 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className='hidden md:flex gap-6 items-center text-white'>
           <a 
-            href="" 
+            href="#hero" 
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('hero');
+            }}
             className='hover:text-purple-300 transition-colors duration-300 relative after:absolute after:w-0 after:h-0.5 after:bg-purple-300 after:left-0 after:-bottom-1 after:transition-all hover:after:w-full'
           >
             Home
           </a>
           <a 
-            href="" 
+            href="#about" 
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('about');
+            }}
             className='hover:text-purple-300 transition-colors duration-300 relative after:absolute after:w-0 after:h-0.5 after:bg-purple-300 after:left-0 after:-bottom-1 after:transition-all hover:after:w-full'
           >
             About
           </a>
           <a 
-            href="" 
+            href="#services" 
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('services');
+            }}
             className='hover:text-purple-300 transition-colors duration-300 relative after:absolute after:w-0 after:h-0.5 after:bg-purple-300 after:left-0 after:-bottom-1 after:transition-all hover:after:w-full'
           >
             Services
           </a>
           <a 
-            href="" 
+            href="#portfolio" 
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('portfolio');
+            }}
             className='hover:text-purple-300 transition-colors duration-300 relative after:absolute after:w-0 after:h-0.5 after:bg-purple-300 after:left-0 after:-bottom-1 after:transition-all hover:after:w-full'
           >
             Portfolio
           </a>
-          <button className='bg-black text-white px-4 py-2 rounded-lg inline-flex hover:bg-purple-900 hover:shadow-lg hover:shadow-purple-700/20 transition-all duration-300 transform hover:-translate-y-1'>
+          <a 
+            href="#contact" 
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('contact');
+            }}
+            className='bg-[#3f37c9] text-white px-4 py-2 rounded-lg inline-flex transition-all duration-300 transform hover:-translate-y-1'
+          >
             Contact
-          </button>
+          </a>
         </nav>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
