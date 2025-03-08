@@ -3,7 +3,6 @@
 import React from 'react';
 import Logoimg from "../assets/programming (2).png";
 import Image from 'next/image';
-import Link from 'next/link';
 
 const Header = () => {
   // Function to handle smooth scrolling
