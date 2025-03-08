@@ -1,5 +1,5 @@
 import React from 'react'
-import img from "../assets/ab-test.png"
+import img from "../assets/concept-of-seo-ranking.png"
 import coding from "../assets/code.png"
 import UiUx from "../assets/frontend.png"
 import landingPage from "../assets/landing-page.png"
@@ -62,7 +62,7 @@ const Hero = () => {
             </div>
             
             {/* Floating icon 3 - Right Center */}
-            <div className='absolute -bottom-2 -right-4 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 animate-pulse delay-700'>
+            <div className='absolute  -right-4 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 animate-pulse delay-700'>
               <div className='bg-white/10 backdrop-blur-sm p-2 rounded-lg shadow-lg transform rotate-12 hover:rotate-0 transition-all duration-300'>
                 <Image
                   src={landingPage}
