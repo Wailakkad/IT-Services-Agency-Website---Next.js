@@ -1,25 +1,32 @@
-// pages/about-us.js
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import devImg from "../assets/openart-image_4QJTrC6j_1741402906187_raw.jpg";
 
+type Skill = {
+  name: string;
+  percentage: number;
+};
+
+type Stat = {
+  number: string;
+  label: string;
+};
+
 export default function AboutUs() {
-  // Skills data
-  const skills = [
+  const skills: Skill[] = [
     { name: "Web Development", percentage: 92 },
     { name: "UI/UX Design", percentage: 88 },
-    { name: "Maintenece", percentage: 85 },
+    { name: "Maintenance", percentage: 85 },
     { name: "Branding", percentage: 77 },
   ];
 
-  // Stats data
-  const stats = [
+  const stats: Stat[] = [
     { number: "2+", label: "Years of Experience" },
     { number: "30+", label: "Projects Done" },
     { number: "20+", label: "Satisfied Clients" },
-    { number: "3", label: "Certifications Completed" } 
+    { number: "3", label: "Certifications Completed" },
   ];
 
   return (
@@ -48,7 +55,6 @@ export default function AboutUs() {
         {/* Hero section with image */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center py-12">
           <div className="relative h-[400px] rounded-lg overflow-hidden">
-            {/* Using the imported image */}
             <Image 
               src={devImg}
               alt="Developer working on a project" 
@@ -61,7 +67,7 @@ export default function AboutUs() {
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-violet-400">We Always Make The Best</h2>
             <p className="text-gray-400 mb-8">
-              With over two decades of experience in web development and design, we've mastered the art of creating digital experiences that captivate, convert, and deliver results. Our team of certified professionals is dedicated to excellence, bringing innovation and technical expertise to every project we undertake.
+              With over two decades of experience in web development and design, we&apos;ve mastered the art of creating digital experiences that captivate, convert, and deliver results. Our team of certified professionals is dedicated to excellence, bringing innovation and technical expertise to every project we undertake.
             </p>
             <button className="bg-violet-600 text-white hover:bg-violet-700 px-6 py-2 rounded-full font-medium transition duration-300">
               Learn More
@@ -106,8 +112,6 @@ export default function AboutUs() {
         </div>
       </main>
 
-      {/* Footer */}
-     
     </div>
   );
 }
