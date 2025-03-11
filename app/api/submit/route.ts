@@ -28,7 +28,7 @@ export async function POST(request: Request) {
 
     const sheets = google.sheets({ version: "v4", auth });
 
-    // Append data to the Google Sheet
+    console.log("Spreadsheet ID:", process.env.GOOGLE_SHEET_ID);
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
       range: "A1:D1", // Adjust the range as needed
