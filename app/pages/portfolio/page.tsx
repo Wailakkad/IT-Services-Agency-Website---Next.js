@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { StaticImageData } from 'next/image'; // Import StaticImageData type
+
 // Import images using the original format
 import project1 from "@/assets/websites/project1.jpg";
 import project2 from "@/assets/websites/project2.jpg";
@@ -13,7 +15,7 @@ interface Project {
   id: number;
   title: string;
   description: string;
-  image: any;
+  image: StaticImageData; // Use StaticImageData for the image type
   category: string;
   link: string;
 }
