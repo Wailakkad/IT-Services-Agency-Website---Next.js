@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 
 interface LandingPricingCardProps {
@@ -9,6 +10,7 @@ interface LandingPricingCardProps {
   price: string;
   deliveryTime: string;
   benefits: string[];
+  pages: string;
   idealFor: string;
   emoji: string;
   buttonText?: string;
@@ -41,7 +43,7 @@ const PricingCard = ({
         </div>
         
         <div className="mb-6">
-          <h4 className="mb-2 font-medium">What's Included:</h4>
+          <h4 className="mb-2 font-medium">What s Included:</h4>
           <ul className="space-y-2">
             {benefits.map((benefit, index) => (
               <li key={index} className="flex items-start gap-2">

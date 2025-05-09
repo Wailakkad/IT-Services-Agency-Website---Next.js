@@ -252,7 +252,7 @@ const PortfolioPage = () => {
         <div className="mt-20 text-center bg-gradient-to-r from-violet-900 to-violet-800 py-12 px-6 rounded-xl">
           <h2 className="text-3xl font-bold mb-4">Ready to create your dream website?</h2>
           <p className="text-lg text-gray-200 mb-8 max-w-2xl mx-auto">
-            Let's collaborate to build a stunning website that perfectly represents your brand and drives results.
+            Let s collaborate to build a stunning website that perfectly represents your brand and drives results.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a 
