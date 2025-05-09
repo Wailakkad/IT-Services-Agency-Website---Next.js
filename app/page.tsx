@@ -97,52 +97,8 @@ const products = [
 ];
 
 export default function Home() {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
 
-    const formData = {
-      firstname,
-      lastname,
-      email,
-      message,
-    };
-
-    try {
-      const response = await fetch("/api/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to submit form");
-      }
-
-      const result = await response.json();
-      console.log("Form submission successful:", result);
-
-      // Reset form fields
-      setFirstname("");
-      setLastname("");
-      setEmail("");
-      setMessage("");
-
-      // Show success toast
-      toast.success("Thank you for contacting us! We'll get back to you soon.");
-    } catch (error) {
-      console.error("Error submitting form:", error);
-
-      // Show error toast
-      toast.error("Something went wrong. Please try again.");
-    }
-  };
 
   return (
     <>

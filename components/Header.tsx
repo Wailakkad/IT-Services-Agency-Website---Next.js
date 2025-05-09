@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Logoimg from "../assets/programming (2).png";
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -11,11 +12,11 @@ const Header = () => {
   
   // Packs data
   const packs = [
-    { id: "websites", name: "Websites", icon: "🌐" },
-    { id: "landing", name: "Landing Pages", icon: "🚀" },
-    { id: "uiux", name: "UI/UX Design", icon: "🎨" },
-    { id: "branding", name: "Branding", icon: "✨" },
-    { id: "maintenance", name: "Maintenance", icon: "🔧" }
+    { id: "websites", name: "Websites", icon: "🌐", path: "/pages/website" },
+    { id: "landing", name: "Landing Pages", icon: "🚀", path: "/pages/landingPges" },
+    { id: "uiux", name: "UI/UX Design", icon: "🎨", path: "/pages/uiux" },
+    { id: "branding", name: "Branding", icon: "✨", path: "/pages/branding" },
+    { id: "maintenance", name: "Maintenance", icon: "🔧", path: "/pages/maintenance" }
   ];
 
   // Handle scroll effect for header
@@ -118,23 +119,23 @@ const Header = () => {
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </button>
             
-            {/* Dropdown Menu */}
+            {/* Dropdown Menu - FIXED */}
             {packDropdownOpen && (
               <div className="absolute mt-2 w-56 right-0 origin-top-right rounded-lg overflow-hidden shadow-lg ring-1 ring-black ring-opacity-5 backdrop-blur-xl bg-gray-900/90 border border-purple-500/20 transform transition-all duration-200">
                 <div className="py-1">
                   {packs.map((pack) => (
-                    <a
+                    <Link
+                      href={pack.path}
                       key={pack.id}
-                      href={`#${pack.id}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        scrollToSection(pack.id);
+                      onClick={() => {
+                        setPackDropdownOpen(false);
+                        setMobileMenuOpen(false);
                       }}
                       className="group flex items-center px-4 py-3 text-sm text-gray-200 hover:bg-purple-600/20 transition-all duration-300"
                     >
                       <span className="text-lg mr-3 opacity-70 group-hover:opacity-100">{pack.icon}</span>
                       <span className="font-medium">{pack.name}</span>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -201,21 +202,22 @@ const Header = () => {
               </svg>
             </div>
             
+            {/* Mobile Dropdown Menu - FIXED */}
             {packDropdownOpen && (
               <div className="mt-3 pl-4 space-y-2">
                 {packs.map((pack) => (
-                  <a
+                  <Link
                     key={pack.id}
-                    href={`#${pack.id}`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(pack.id);
+                    href={pack.path}
+                    onClick={() => {
+                      setPackDropdownOpen(false);
+                      setMobileMenuOpen(false);
                     }}
                     className="flex items-center py-2 text-gray-300 hover:text-white"
                   >
                     <span className="text-lg mr-3">{pack.icon}</span>
                     <span>{pack.name}</span>
-                  </a>
+                  </Link>
                 ))}
               </div>
             )}
