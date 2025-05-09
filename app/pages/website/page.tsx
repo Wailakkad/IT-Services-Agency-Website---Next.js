@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 
 interface LandingPricingCardProps {
@@ -10,7 +9,6 @@ interface LandingPricingCardProps {
   price: string;
   deliveryTime: string;
   benefits: string[];
-  pages: string;
   idealFor: string;
   emoji: string;
   buttonText?: string;
@@ -21,7 +19,6 @@ const PricingCard = ({
   tier, 
   price, 
   deliveryTime, 
-  pages, 
   benefits, 
   idealFor,
   emoji 
