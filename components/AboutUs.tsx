@@ -69,9 +69,11 @@ export default function AboutUs() {
             <p className="text-gray-400 mb-8">
               With over two decades of experience in web development and design, we&apos;ve mastered the art of creating digital experiences that captivate, convert, and deliver results. Our team of certified professionals is dedicated to excellence, bringing innovation and technical expertise to every project we undertake.
             </p>
-            <button className="bg-violet-600 text-white hover:bg-violet-700 px-6 py-2 rounded-full font-medium transition duration-300">
-              Learn More
+           <Link href="/pages/services">
+                <button className="bg-violet-600 text-white hover:bg-violet-700 px-6 py-2 rounded-full font-medium transition duration-300">
+              Get Started Now
             </button>
+           </Link>
           </div>
         </div>
 

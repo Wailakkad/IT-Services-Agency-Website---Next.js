@@ -112,7 +112,8 @@ export const Header = () => {
         We are a team of passionate developers and designers that love to build
         amazing products.
       </p>
-      <button className="relative max-w-[400px] w-full bg-[#3f37c9] text-white py-2 mt-6 rounded-full font-medium overflow-hidden group transition-all duration-300 hover:shadow-lg hover:shadow-[#3f37c9]/50">
+       <Link href="/pages/portfolio" className="cusror-pointer">
+              <button className="relative max-w-[400px] w-full bg-[#3f37c9] text-white py-2 mt-6 rounded-full font-medium overflow-hidden group transition-all duration-300 hover:shadow-lg hover:shadow-[#3f37c9]/50">
             <span className="relative z-10 group-hover:tracking-wider transition-all duration-300">See More</span>
             <span className="absolute inset-0 bg-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
             <span className="absolute right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
@@ -121,6 +122,7 @@ export const Header = () => {
               </svg>
             </span>
           </button>
+       </Link>
     </div>
   );
 };

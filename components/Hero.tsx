@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import imgHero from "@/assets/hero.png"
+import Link from 'next/link';
 import { ArrowRight, Code, Palette, Layout, Sparkles } from 'lucide-react';
 
 const Hero = () => {
@@ -38,13 +39,17 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-              <button className="px-6 py-3 bg-white text-indigo-900 font-medium rounded-lg hover:shadow-lg transition duration-300 flex items-center gap-2 group">
+                 <Link href="/pages/services">
+                     <button className="px-6 py-3 bg-white text-indigo-900 font-medium rounded-lg hover:shadow-lg transition duration-300 flex items-center gap-2 group">
                 Start Your Project
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/10 text-white rounded-lg hover:bg-white/20 transition duration-300">
+                 </Link>
+             <Link href="/pages/portfolio">
+                 <button className="px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/10 text-white rounded-lg hover:bg-white/20 transition duration-300">
                 View Our Work
               </button>
+             </Link>
             </div>
             
         

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const ITServices = () => {
@@ -71,12 +72,14 @@ const ITServices = () => {
           We specialize in creating high-performance websites and digital solutions that drive results.
         </p>
         
-        <button className="bg-violet-700 hover:bg-violet-800 text-white py-2 px-4 rounded-lg flex items-center transition-colors duration-300 mx-auto">
+         <Link href="/pages/services">
+             <button className="bg-violet-700 hover:bg-violet-800 text-white py-2 px-4 rounded-lg flex items-center transition-colors duration-300 mx-auto">
           Get Started
           <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
           </svg>
         </button>
+         </Link>
         
         {/* Service cards - grid layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">

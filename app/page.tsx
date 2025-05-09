@@ -6,8 +6,9 @@ import AboutUs from "@/components/AboutUs";
 import MarketingServices from "@/components/MarketingServices";
 import Footer from "@/components/Footer";
 import { HeroParallax } from "@/components/ui/hero-parallax";
+import  Testimonials  from "@/components/Reviews"
 import { Vortex } from "@/components/ui/vortex";
-import toast from "react-hot-toast";
+import Link from "next/link";
 
 const products = [
   {
@@ -146,7 +147,8 @@ export default function Home() {
           
           {/* Modern CTA buttons with hover effects */}
           <div className="flex flex-col sm:flex-row gap-4 mt-2">
-            <button className="group relative px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full text-white font-medium overflow-hidden shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 transition-all duration-300">
+            <Link href="/pages/services">
+               <button className="group relative px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full text-white font-medium overflow-hidden shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 transition-all duration-300">
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               <span className="relative flex items-center justify-center">
                 Get Started Now
@@ -155,10 +157,13 @@ export default function Home() {
                 </svg>
               </span>
             </button>
+            </Link>
             
-            <button className="px-8 py-4 border border-indigo-500/30 rounded-full text-indigo-300 font-medium backdrop-blur-sm hover:bg-indigo-500/10 transition-all duration-300">
+            <Link href="/pages/portfolio">
+                   <button className="px-8 py-4 border border-indigo-500/30 rounded-full text-indigo-300 font-medium backdrop-blur-sm hover:bg-indigo-500/10 transition-all duration-300">
               View Our Work
             </button>
+            </Link>
           </div>
           
           {/* Stats section for social proof */}
@@ -186,6 +191,9 @@ export default function Home() {
         </div>
       </Vortex>
     </div>
+      <div id="testimonials">
+        <Testimonials />
+      </div>
       <Footer />
     </>
   );
