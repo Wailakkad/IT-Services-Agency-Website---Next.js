@@ -48,9 +48,11 @@ function Hero() {
       <div className="container mx-auto">
         <div className="flex gap-8 py-20 lg:py-40 items-center justify-center flex-col">
           <div>
-            <Button variant="secondary" size="sm" className="gap-4">
+           <Link href="/pages/portfolio">
+               <Button variant="secondary" size="sm" className="gap-4">
               Explore our portfolio <MoveRight className="w-4 h-4" />
             </Button>
+           </Link>
           </div>
           <div className="flex gap-4 flex-col">
             <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-regular">
@@ -87,12 +89,12 @@ function Hero() {
             </p>
           </div>
           <div className="flex flex-row gap-3">
-            <Button size="lg" className="gap-4" variant="outline">
+           <Link href="/pages/contactPage">
+              <Button size="lg" className="gap-4" variant="outline">
               Get a free consultation <PhoneCall className="w-4 h-4" />
             </Button>
-            <Button size="lg" className="gap-4">
-              View our services <MoveRight className="w-4 h-4" />
-            </Button>
+           </Link>
+          
           </div>
         </div>
       </div>
