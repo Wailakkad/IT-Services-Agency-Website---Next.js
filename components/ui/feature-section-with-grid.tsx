@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import website from "@/assets/services/dev.jpg";
 import uiux from "@/assets/services/uiux.jpg";
 import landingPage from "@/assets/services/ui.jpg";
-import seo from "@/assets/services/seo.jpg";
 import branding from "@/assets/services/branding.jpg";
 import maintenance from "@/assets/services/maintence.jpg";
 import Image from "next/image";
+import Link from "next/link";
 
 function Feature() {
   const services = [
@@ -14,37 +14,37 @@ function Feature() {
       title: "Website Development",
       description: "Custom-built websites that are responsive, fast-loading, and optimized for conversion with cutting-edge technologies.",
       image: website,
-      alt: "Website Development Service"
+      alt: "Website Development Service",
+      link : "/pages/website"
+
     },
     {
       title: "UI/UX Design",
       description: "Intuitive and engaging user experiences with beautiful interfaces that enhance brand perception and user satisfaction.",
       image: landingPage,
-      alt: "UI/UX Design Service"
+      alt: "UI/UX Design Service",
+      link : "/pages/uiuxPage"
     },
     {
       title: "Landing Page Design",
       description: "High-converting landing pages focused on driving action, with strategic layouts and compelling visual elements.",
       image: uiux,
-      alt: "Landing Page Design Service"
-    },
-    {
-      title: "SEO Optimization",
-      description: "Data-driven search engine optimization strategies to increase organic traffic and improve your digital visibility.",
-      image: seo,
-      alt: "SEO Optimization Service"
+      alt: "Landing Page Design Service",
+        link : "/pages/landingPges"
     },
     {
       title: "Branding & Identity",
       description: "Comprehensive branding solutions that communicate your unique story and resonate with your target audience.",
       image: branding,
-      alt: "Branding and Identity Service"
+      alt: "Branding and Identity Service",
+      link : "/pages/branding"
     },
     {
       title: "Website Maintenance",
       description: "Proactive website maintenance services to ensure optimal performance, security, and up-to-date content.",
       image: maintenance,
-      alt: "Website Maintenance Service"
+      alt: "Website Maintenance Service",
+      link : "/pages/Maintenance"
     }
   ];
 
@@ -80,9 +80,11 @@ function Feature() {
                 <p className="text-violet-200 text-base flex-grow">
                   {service.description}
                 </p>
-                <Button className="mt-2 bg-white hover:bg-violet-100 text-violet-900 hover:text-violet-950 font-medium">
+               <Link href={service.link}>
+                   <Button className="mt-2 bg-white hover:bg-violet-100 text-violet-900 hover:text-violet-950 font-medium">
                   View Packages
                 </Button>
+               </Link>
               </div>
             ))}
           </div>

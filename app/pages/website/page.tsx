@@ -60,15 +60,17 @@ const PricingCard = ({
           <p className="text-sm">{idealFor}</p>
         </div>
         
-        <button className={`w-full rounded-lg py-2 font-medium transition-colors ${
-          color === "green" 
-            ? "bg-green-500 text-white hover:bg-green-600" 
-            : color === "blue" 
-              ? "bg-blue-500 text-white hover:bg-blue-600" 
-              : "bg-purple-500 text-white hover:bg-purple-600"
-        }`}>
-          Get Started
-        </button>
+        <Link href="/pages/contactPage">
+          <button className={`w-full rounded-lg py-2 font-medium transition-colors ${
+            color === "green" 
+              ? "bg-green-500 text-white hover:bg-green-600" 
+              : color === "blue" 
+                ? "bg-blue-500 text-white hover:bg-blue-600" 
+                : "bg-purple-500 text-white hover:bg-purple-600"
+          }`}>
+            Get Started
+          </button>
+        </Link>
       </div>
     </div>
   );

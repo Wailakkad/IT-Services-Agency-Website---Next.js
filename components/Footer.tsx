@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
                 />
               </div>
               <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-purple-300">
-                Your Agency
+                IT Services
               </h3>
             </div>
             <p className="text-gray-400 text-sm">
@@ -78,24 +78,18 @@ const Footer: React.FC = () => {
               Contact Us
             </h3>
             <div className="space-y-3">
-              <ContactItem 
-                icon={<FaMapMarkerAlt />} 
-                text="123 Agency Street, Tech City" 
-              />
+              
               <ContactItem 
                 icon={<FaEnvelope />} 
-                text="info@youragency.com" 
-                href="mailto:info@youragency.com" 
+                text="akkadouail8@gmail.com" 
               />
               <ContactItem 
                 icon={<FaPhoneAlt />} 
-                text="+1 (234) 567-8900" 
-                href="tel:+12345678900" 
+                text="+212 702-308481" 
               />
               <ContactItem 
                 icon={<FaWhatsapp />} 
                 text="WhatsApp Us" 
-                href="https://wa.me/12345678900" 
               />
             </div>
           </div>
@@ -125,26 +119,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
       
-      {/* Bottom Footer / Copyright */}
-      <div className="bg-black py-6">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Your Agency. All rights reserved.
-          </p>
-          <div className="flex space-x-4 mt-4 md:mt-0">
-            <Link href="/privacy" legacyBehavior>
-              <a className="text-gray-400 hover:text-purple-400 text-sm transition-colors duration-300">
-                Privacy Policy
-              </a>
-            </Link>
-            <Link href="/terms" legacyBehavior>
-              <a className="text-gray-400 hover:text-purple-400 text-sm transition-colors duration-300">
-                Terms of Service
-              </a>
-            </Link>
-          </div>
-        </div>
-      </div>
+   
     </footer>
   );
 };

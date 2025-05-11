@@ -62,7 +62,8 @@ const LandingPricingCard = ({
           <p className="text-sm">{idealFor}</p>
         </div>
         
-        <button className={`w-full rounded-lg py-2 font-medium transition-colors ${
+        <Link href="/pages/contactPage">
+            <button className={`w-full rounded-lg py-2 font-medium transition-colors ${
           color === "green" 
             ? "bg-green-500 text-white hover:bg-green-600" 
             : color === "blue" 
@@ -71,6 +72,7 @@ const LandingPricingCard = ({
         }`}>
           {buttonText || "Get Started"}
         </button>
+        </Link>
       </div>
     </div>
   );

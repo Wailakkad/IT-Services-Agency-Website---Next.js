@@ -166,20 +166,7 @@ export default function Home() {
           </div>
           
           {/* Stats section for social proof */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mt-16 w-full max-w-2xl">
-            <div className="text-center">
-              <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">100+</div>
-              <div className="text-gray-400 text-sm mt-1">Projects Completed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">95%</div>
-              <div className="text-gray-400 text-sm mt-1">Client Satisfaction</div>
-            </div>
-            <div className="text-center md:col-span-1 col-span-2 mx-auto">
-              <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-indigo-400">24/7</div>
-              <div className="text-gray-400 text-sm mt-1">Support Available</div>
-            </div>
-          </div>
+    
           
           {/* Floating decorative elements */}
           <div className="absolute top-0 -left-20 w-40 h-40 bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-5 animate-blob"></div>

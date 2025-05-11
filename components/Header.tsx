@@ -14,9 +14,9 @@ const Header = () => {
   const packs = [
     { id: "websites", name: "Websites", icon: "🌐", path: "/pages/website" },
     { id: "landing", name: "Landing Pages", icon: "🚀", path: "/pages/landingPges" },
-    { id: "uiux", name: "UI/UX Design", icon: "🎨", path: "/pages/uiux" },
+    { id: "uiux", name: "UI/UX Design", icon: "🎨", path: "/pages/uiuxPage" },
     { id: "branding", name: "Branding", icon: "✨", path: "/pages/branding" },
-    { id: "maintenance", name: "Maintenance", icon: "🔧", path: "/pages/maintenance" }
+    { id: "maintenance", name: "Maintenance", icon: "🔧", path: "/pages/Maintenance" }
   ];
 
   // Handle scroll effect for header
@@ -143,14 +143,7 @@ const Header = () => {
           </div>
           
           {/* Contact Button */}
-          <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('contact');
-            }}
-            className='ml-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-5 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30 group relative overflow-hidden'
-          >
+        <Link href="/pages/contactPage" className='ml-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-5 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30 group relative overflow-hidden'>
             <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             <span className="relative flex items-center justify-center">
               Contact
@@ -158,7 +151,7 @@ const Header = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </span>
-          </a>
+          </Link>
         </nav>
       </div>
       

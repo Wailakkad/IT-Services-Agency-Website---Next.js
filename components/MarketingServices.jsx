@@ -64,7 +64,6 @@ const ITServices = () => {
       
       {/* Main content */}
       <div className="max-w-5xl mx-auto pt-16 text-center">
-        <div className="text-sm text-gray-400 mb-1 font-light">YOUR IT SERVICES PARTNER</div>
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
           Let's Build Your Online<br />Success Story
         </h1>
