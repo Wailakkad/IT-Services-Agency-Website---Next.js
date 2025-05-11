@@ -111,9 +111,10 @@ const UiUxPricingDemo = () => {
           <p className="text-xl font-medium text-muted-foreground">
             Intuitive and Beautiful Experiences That Convert
           </p>
-          <p className="mx-auto max-w-3xl text-base md:text-lg text-muted-foreground">
-            Whether you're launching a product or redesigning your app, our UI/UX packages are tailored to deliver seamless, modern, and results-driven user experiences.
-          </p>
+       <p className="mx-auto max-w-3xl text-base md:text-lg text-muted-foreground">
+  Whether you&rsquo;re launching a product or redesigning your app, our UI/UX packages are tailored to deliver seamless, modern, and results-driven user experiences.
+</p>
+
         </div>
 
         <h3 className="mb-6 text-center text-2xl font-semibold">📦 Our UI/UX Packages</h3>
