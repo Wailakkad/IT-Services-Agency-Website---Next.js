@@ -43,9 +43,10 @@ const contactItems = [
           <h1 className="text-4xl font-bold mb-6 bg-gradient-to-r from-white to-violet-300 bg-clip-text text-transparent">
             Get in Touch
           </h1>
-          <p className="text-lg text-gray-300 max-w-xl mx-auto">
-            Let's talk about your website project. Choose a platform below to get in touch.
-          </p>
+         <p className="text-lg text-gray-300 max-w-xl mx-auto">
+  Let&rsquo;s talk about your website project. Choose a platform below to get in touch.
+</p>
+
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
