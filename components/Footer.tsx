@@ -53,8 +53,8 @@ const Footer: React.FC = () => {
             <div className="flex space-x-4 pt-2">
               <SocialIcon icon={<FaFacebookF />} href="https://facebook.com" />
               <SocialIcon icon={<FaTwitter />} href="https://twitter.com" />
-              <SocialIcon icon={<FaInstagram />} href="https://instagram.com" />
-              <SocialIcon icon={<FaLinkedinIn />} href="https://linkedin.com" />
+              <SocialIcon icon={<FaInstagram />} href="https://www.instagram.com/accounts/login/?next=%2Fitse_rvices8525%2F&source=omni_redirect" />
+              <SocialIcon icon={<FaLinkedinIn />} href="https://www.linkedin.com/in/it-services-a9b546365/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3B6u7a%2BIqjTPeLI5C5X%2FQTjQ%3D%3D " />
             </div>
           </div>
           
@@ -81,7 +81,7 @@ const Footer: React.FC = () => {
               
               <ContactItem 
                 icon={<FaEnvelope />} 
-                text="akkadouail8@gmail.com" 
+                text="itservices0805@gmail.com" 
               />
               <ContactItem 
                 icon={<FaPhoneAlt />} 

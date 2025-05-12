@@ -1,60 +1,78 @@
-import { motion } from "motion/react";
+import { StaticImageData } from 'next/image';
+import { motion } from "framer-motion";
+import women1 from "@/assets/services/women1.jpg"
+import women2 from "@/assets/services/women2.png"
+import women3 from "@/assets/services/women3.jpg"
+import women4 from "@/assets/services/women4.jpg"
+import women5 from "@/assets/services/women5.jpg"
+import men1 from "@/assets/services/men1.jpg"
+import men2 from "@/assets/services/men2.jpg"
+import men3 from "@/assets/services/men3.jpg"
+import men4 from "@/assets/services/men4.jpg"
 
-// Updated TestimonialsColumn component with new styling
+// Define the Testimonial interface
+interface Testimonial {
+  text: string;
+  image: string; // Changed from StaticImageData to string
+  name: string;
+  role: string;
+}
+
+// Updated TestimonialsColumn component import (adjust path as needed)
 import { TestimonialsColumn } from "./testimonials-columns-1";
 
-const testimonials = [
+const testimonials: Testimonial[] = [
   {
-    text: "This ERP revolutionized our operations, streamlining finance and inventory. The cloud-based platform keeps us productive, even remotely.",
-    image: "https://randomuser.me/api/portraits/women/1.jpg",
+    text: "Their team crafted a beautiful and functional website for us. It boosted our visibility and client trust dramatically.",
+    image: women1.src, // Use .src to convert StaticImageData to string
     name: "Briana Patton",
     role: "Operations Manager",
   },
   {
-    text: "Implementing this ERP was smooth and quick. The customizable, user-friendly interface made team training effortless.",
-    image: "https://randomuser.me/api/portraits/men/2.jpg",
+    text: "We needed a landing page that converts — and they delivered. Clean design, fast loading, and optimized perfectly.",
+    image: men1.src,
     name: "Bilal Ahmed",
-    role: "IT Manager",
+    role: "Marketing Lead",
   },
   {
-    text: "The support team is exceptional, guiding us through setup and providing ongoing assistance, ensuring our satisfaction.",
-    image: "https://randomuser.me/api/portraits/women/3.jpg",
+    text: "The UI/UX design exceeded our expectations. Intuitive layouts and consistent branding helped elevate our digital product.",
+    image: women2.src,
     name: "Saman Malik",
-    role: "Customer Support Lead",
+    role: "Product Owner",
   },
   {
-    text: "This ERP's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.",
-    image: "https://randomuser.me/api/portraits/men/4.jpg",
+    text: "From branding to website development, everything was handled with creativity and professionalism.",
+    image: men2.src,
     name: "Omar Raza",
     role: "CEO",
   },
   {
-    text: "Its robust features and quick support have transformed our workflow, making us significantly more efficient.",
-    image: "https://randomuser.me/api/portraits/women/5.jpg",
+    text: "Their landing page design helped us increase conversions by 35% — visually stunning and mobile-friendly.",
+    image: women3.src,
     name: "Zainab Hussain",
-    role: "Project Manager",
+    role: "Digital Strategist",
   },
   {
-    text: "The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
+    text: "Great collaboration and clear process. They understood our needs and built a custom solution that reflects our brand.",
+    image: women4.src,
     name: "Aliza Khan",
-    role: "Business Analyst",
+    role: "Creative Director",
   },
   {
-    text: "Our business functions improved with a user-friendly design and positive customer feedback.",
-    image: "https://randomuser.me/api/portraits/men/7.jpg",
+    text: "Professional team and timely delivery. Our branding is now modern, bold, and consistent across platforms.",
+    image: men3.src,
     name: "Farhan Siddiqui",
-    role: "Marketing Director",
+    role: "Brand Manager",
   },
   {
-    text: "They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.",
-    image: "https://randomuser.me/api/portraits/women/8.jpg",
+    text: "They helped us rebrand and redesign our website — the result was a sleek and modern experience that stands out.",
+    image: women5.src,
     name: "Sana Sheikh",
-    role: "Sales Manager",
+    role: "Marketing Manager",
   },
   {
-    text: "Using this ERP, our online presence and conversions significantly improved, boosting business performance.",
-    image: "https://randomuser.me/api/portraits/men/9.jpg",
+    text: "UI/UX revamp brought clarity to our service offering. Our users now stay longer and explore more.",
+    image: men4.src,
     name: "Hassan Ali",
     role: "E-commerce Manager",
   },
@@ -94,7 +112,7 @@ const Testimonials = () => {
 
         <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
           <TestimonialsColumn testimonials={firstColumn} duration={15} />
-          <TestimonialsColumn testimonials={secondColumn} className="hidden  md:block" duration={19} />
+          <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
           <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />
         </div>
       </div>
