@@ -1,4 +1,3 @@
-import { StaticImageData } from 'next/image';
 import { motion } from "framer-motion";
 import women1 from "@/assets/services/women1.jpg"
 import women2 from "@/assets/services/women2.png"
