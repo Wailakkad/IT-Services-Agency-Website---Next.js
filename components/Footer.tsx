@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaWhatsapp, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 
 // Import your logo
-import Logoimg from "../assets/programming (2).png";
+import Logoimg from "../assets/logo2.png";
 
 // TypeScript interfaces
 interface SocialIconProps {
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
                 />
               </div>
               <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-purple-300">
-                IT Services
+                Webloom
               </h3>
             </div>
             <p className="text-gray-400 text-sm">

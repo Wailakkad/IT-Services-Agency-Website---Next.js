@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import Logoimg from "../assets/programming (2).png";
+import Logoimg from "../assets/logo2.png";
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -34,18 +34,23 @@ const Header = () => {
   }, []);
 
   // Function to handle smooth scrolling
-  const scrollToSection = (sectionId : string) => {
-    setMobileMenuOpen(false);
-    setPackDropdownOpen(false);
-    
-    const section = document.getElementById(sectionId);
-    if (section) {
-      window.scrollTo({
-        top: section.offsetTop - 80, // Offset for header height
-        behavior: 'smooth'
-      });
-    }
-  };
+  const scrollToSection = (sectionId: string, e: React.MouseEvent<HTMLAnchorElement>) => {
+  if (e) {
+    e.preventDefault();
+    e.stopPropagation(); // Stop event propagation
+  }
+
+  setMobileMenuOpen(false);
+  setPackDropdownOpen(false);
+
+  const section = document.getElementById(sectionId);
+  if (section) {
+    window.scrollTo({
+      top: section.offsetTop - 80, // Offset for header height
+      behavior: 'smooth',
+    });
+  }
+};
 
   return (
     <div className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'py-2 bg-black/80 backdrop-blur-md shadow-lg shadow-purple-500/10' : 'py-4 bg-black/10 backdrop-blur-sm'}`}>
@@ -66,7 +71,7 @@ const Header = () => {
           </div>
           <div className="ml-3">
             <span className='font-bold text-white text-lg bg-clip-text bg-gradient-to-r from-indigo-200 to-purple-200'>
-              IT Services
+              Webloom
             </span>
             <span className="block text-xs text-purple-300/80 font-medium -mt-1 tracking-wider">Digital Solutions</span>
           </div>
@@ -74,7 +79,10 @@ const Header = () => {
         
         {/* Mobile Menu Button */}
         <button 
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
+          onClick={(e) => {
+            e.stopPropagation();
+            setMobileMenuOpen(!mobileMenuOpen);
+          }} 
           className='md:hidden flex flex-col gap-1.5 p-2 focus:outline-none'
           aria-label="Toggle menu"
         >
@@ -89,10 +97,7 @@ const Header = () => {
             <a
               key={item}
               href={`#${item}`}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection(item);
-              }}
+              onClick={(e) => scrollToSection(item, e)}
               className='text-white/90 hover:text-white px-3 py-2 text-sm font-medium transition-all duration-300 relative group'
             >
               <span>{item.charAt(0).toUpperCase() + item.slice(1)}</span>
@@ -103,8 +108,11 @@ const Header = () => {
           {/* Dropdown for Packs */}
           <div className="relative">
             <button 
-              onClick={() => setPackDropdownOpen(!packDropdownOpen)}
-              onBlur={() => setTimeout(() => setPackDropdownOpen(false), 200)}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setPackDropdownOpen(!packDropdownOpen);
+              }}
               className='text-white/90 hover:text-white px-3 py-2 text-sm font-medium transition-all duration-300 relative group flex items-center'
             >
               <span>Nos Packs</span>
@@ -119,7 +127,7 @@ const Header = () => {
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </button>
             
-            {/* Dropdown Menu - FIXED */}
+            {/* Dropdown Menu */}
             {packDropdownOpen && (
               <div className="absolute mt-2 w-56 right-0 origin-top-right rounded-lg overflow-hidden shadow-lg ring-1 ring-black ring-opacity-5 backdrop-blur-xl bg-gray-900/90 border border-purple-500/20 transform transition-all duration-200">
                 <div className="py-1">
@@ -127,7 +135,8 @@ const Header = () => {
                     <Link
                       href={pack.path}
                       key={pack.id}
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.stopPropagation();
                         setPackDropdownOpen(false);
                         setMobileMenuOpen(false);
                       }}
@@ -142,10 +151,13 @@ const Header = () => {
             )}
           </div>
           
-          {/* Contact Button */}
-        <Link href="/pages/contactPage" className='ml-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-5 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30 group relative overflow-hidden'>
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-            <span className="relative flex items-center justify-center">
+          {/* Contact Button - FIXED */}
+          <Link 
+            href="/pages/contactPage"
+            onClick={(e) => e.stopPropagation()}
+            className="ml-2 relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-medium text-white transition-all duration-300 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg group hover:from-purple-700 hover:to-indigo-700"
+          >
+            <span className="relative flex items-center">
               Contact
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-0 ml-0 group-hover:w-4 group-hover:ml-2 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -164,10 +176,7 @@ const Header = () => {
             <a
               key={item}
               href={`#${item}`}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection(item);
-              }}
+              onClick={(e) => scrollToSection(item, e)}
               className='text-white text-lg font-medium py-4 border-b border-white/10 flex justify-between items-center'
             >
               {item.charAt(0).toUpperCase() + item.slice(1)}
@@ -180,8 +189,11 @@ const Header = () => {
           {/* Mobile Dropdown */}
           <div className="py-4 border-b border-white/10">
             <div 
-              className="flex justify-between items-center"
-              onClick={() => setPackDropdownOpen(!packDropdownOpen)}
+              className="flex justify-between items-center cursor-pointer"
+              onClick={(e) => {
+                e.stopPropagation();
+                setPackDropdownOpen(!packDropdownOpen);
+              }}
             >
               <span className="text-white text-lg font-medium">Nos Packs</span>
               <svg 
@@ -195,14 +207,15 @@ const Header = () => {
               </svg>
             </div>
             
-            {/* Mobile Dropdown Menu - FIXED */}
+            {/* Mobile Dropdown Menu */}
             {packDropdownOpen && (
               <div className="mt-3 pl-4 space-y-2">
                 {packs.map((pack) => (
                   <Link
                     key={pack.id}
                     href={pack.path}
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.stopPropagation();
                       setPackDropdownOpen(false);
                       setMobileMenuOpen(false);
                     }}
@@ -216,17 +229,14 @@ const Header = () => {
             )}
           </div>
           
-          {/* Mobile Contact Button */}
-          <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('contact');
-            }}
+          {/* Mobile Contact Button - FIXED */}
+          <Link
+            href="/pages/contactPage"
+            onClick={(e) => e.stopPropagation()}
             className='mt-6 bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 px-6 rounded-lg text-center font-medium'
           >
             Contact Us
-          </a>
+          </Link>
         </div>
       </div>
     </div>

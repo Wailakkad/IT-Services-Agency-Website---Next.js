@@ -10,6 +10,13 @@ import project2 from "@/assets/websites/project2.jpg";
 import project3 from "@/assets/websites/project3.jpg";
 import project4 from "@/assets/websites/project4.jpg";
 import project5 from "@/assets/websites/project5.jpg";
+import project7 from "@/assets/websites/project7.jpg";
+import project8 from "@/assets/websites/project8.jpg";
+import project9 from "@/assets/websites/project9.jpg";
+import project10 from "@/assets/websites/project10.jpg";
+import project11 from "@/assets/websites/project11.jpg";
+import project12 from "@/assets/websites/project12.jpg";
+import project13 from "@/assets/websites/project13.jpg";
 
 interface Project {
   id: number;
@@ -27,7 +34,7 @@ const PortfolioPage = () => {
       title: "E-Commerce Platform",
       description: "A modern e-commerce solution with seamless payment integration and responsive design.",
       image: project1,
-      category: "Web Application",
+      category: "Websites",
       link: "#"
     },
     {
@@ -43,7 +50,7 @@ const PortfolioPage = () => {
       title: "Portfolio Website",
       description: "Creative portfolio website showcasing artistic work with elegant animations.",
       image: project3,
-      category: "Portfolio",
+      category: "Websites",
       link: "#"
     },
     {
@@ -51,7 +58,7 @@ const PortfolioPage = () => {
       title: "Restaurant Booking System",
       description: "Interactive booking platform with real-time availability and user-friendly interface.",
       image: project4,
-      category: "Web Application",
+      category: "Websites",
       link: "#"
     },
     {
@@ -59,9 +66,65 @@ const PortfolioPage = () => {
       title: "SaaS Dashboard",
       description: "Comprehensive dashboard with analytics and user management features.",
       image: project5,
-      category: "Web Application",
+      category: "Websites",
       link: "#"
-    }
+    },
+    {
+      id: 6,
+      title: "serum product landing page",
+      description: "serum product landing page with a focus on user engagement and lead generation.",
+      image: project7,
+      category: "Landing Page",
+      link: "#"
+    },
+      {
+      id: 7,
+      title: "Natural Skincare Product Landing Page", 
+      description: "Natural skincare product landing page with a focus on user engagement and lead generation.",
+      image: project8,
+      category: "Landing Page",
+      link: "#"
+    },
+      {
+      id: 8,
+      title: "it agency landing page",
+      description: "it agency landing page with a focus on user engagement and lead generation.", 
+      image: project9,
+      category: "Landing Page",
+      link: "#"
+    },
+      {
+      id: 9,
+      title: "designer portfolio",
+      description: "designer portfolio with a focus on user engagement and lead generation.",
+      image: project10,
+      category: "Portfolio",
+      link: "#"
+    },
+    {
+      id: 10,
+      title: "designer portfolio",
+      description: "designer portfolio with a focus on user engagement and lead generation.",
+      image: project11,
+      category: "Portfolio",
+      link: "#"
+    },
+    {
+      id: 11,
+      title: "ui/ux Designer portfolio",
+      description: "ui/ux Designer portfolio with a focus on user engagement and lead generation.",
+      image: project12,
+      category: "Portfolio",
+      link: "#"
+    },
+     {
+      id: 12,
+      title: "freelance web portfolio",
+      description: "freelance web portfolio with a focus on user engagement and lead generation.",
+      image: project13,
+      category: "Portfolio",
+      link: "#"
+    },
   ];
 
   const [filter, setFilter] = useState('All');
@@ -235,16 +298,7 @@ const PortfolioPage = () => {
                   </div>
                 </div>
                 
-                <div className="flex justify-center">
-                  <a 
-                    href={selectedProject.link} 
-                    className="bg-violet-700 hover:bg-violet-800 text-white font-bold px-8 py-3 rounded-lg transition-colors duration-300"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Visit Live Project
-                  </a>
-                </div>
+             
               </div>
             </div>
           </div>
@@ -257,18 +311,16 @@ const PortfolioPage = () => {
             Let s collaborate to build a stunning website that perfectly represents your brand and drives results.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a 
-              href="/contact" 
-              className="bg-white text-black px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors duration-300"
-            >
+        <Link href="/pages/contactPage"   className="bg-white text-black px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors duration-300">
+             
               Get in Touch
-            </a>
-            <a 
-              href="/services" 
-              className="bg-transparent border border-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-violet-900 transition-colors duration-300"
-            >
+            
+           </Link>
+           <Link href="/pages/services"  className="bg-white text-black px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors duration-300">
+             
               View Services
-            </a>
+            
+        </Link>
           </div>
         </div>
       </div>
