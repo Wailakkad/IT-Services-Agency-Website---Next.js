@@ -17,6 +17,7 @@ import project10 from "@/assets/websites/project10.jpg";
 import project11 from "@/assets/websites/project11.jpg";
 import project12 from "@/assets/websites/project12.jpg";
 import project13 from "@/assets/websites/project13.jpg";
+import project14 from "@/assets/websites/project14.png";
 
 interface Project {
   id: number;
@@ -123,6 +124,14 @@ const PortfolioPage = () => {
       description: "freelance web portfolio with a focus on user engagement and lead generation.",
       image: project13,
       category: "Portfolio",
+      link: "#"
+    },
+     {
+      id: 13,
+      title: "travel agency website",
+      description: "travel agency website with a focus on user engagement and lead generation.",
+      image: project14,
+      category: "Websites",
       link: "#"
     },
   ];
