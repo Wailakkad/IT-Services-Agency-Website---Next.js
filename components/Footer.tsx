@@ -65,9 +65,9 @@ const Footer: React.FC = () => {
             </h3>
             <ul className="space-y-2">
               <FooterLink href="/about">About Us</FooterLink>
-              <FooterLink href="/services">Services</FooterLink>
-              <FooterLink href="/portfolio">Portfolio</FooterLink>
-              <FooterLink href="/blog">Blog</FooterLink>
+              <FooterLink href="/pages/services">Services</FooterLink>
+              <FooterLink href="/pages/portfolio">Portfolio</FooterLink>
+              <FooterLink href="/pages/blog">Blog</FooterLink>
               <FooterLink href="/faq">Q&A</FooterLink>
             </ul>
           </div>
