@@ -75,7 +75,7 @@ const PricingCard = ({
         </div>
 
         <div className="mb-6">
-          <h4 className="mb-3 font-medium text-white">What's Included:</h4>
+          <h4 className="mb-3 font-medium text-white">What&apos;s Included:</h4>
           <ul className="space-y-3">
             {benefits.map((benefit, index) => (
               <li key={index} className="flex items-start gap-2 transition-all duration-200 hover:translate-x-1">
