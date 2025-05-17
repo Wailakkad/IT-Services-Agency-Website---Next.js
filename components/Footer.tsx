@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaWhatsapp, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 
 // Import your logo
 import Logoimg from "../assets/W-logo.png";

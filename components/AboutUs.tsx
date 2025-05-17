@@ -88,7 +88,7 @@ export default function AboutUs() {
             </h2>
             <p className="text-gray-300 mb-6 text-lg">
               With our dedicated team of experts, we bring innovation and technical expertise to every project. 
-              We're passionate about creating digital solutions that not only meet but exceed expectations,
+              We&rsquo;re passionate about creating digital solutions that not only meet but exceed expectations,
               helping businesses thrive in an increasingly digital world.
             </p>
             <p className="text-gray-300 mb-8">
