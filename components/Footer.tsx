@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaWhatsapp, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 
 // Import your logo
-import Logoimg from "../assets/logo2.png";
+import Logoimg from "../assets/W-logo.png";
 
 // TypeScript interfaces
 interface SocialIconProps {
@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
                   objectFit="contain"
                 />
               </div>
-              <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-purple-300">
+              <h3 className="text-xl font-bold text-white">
                 Webloom
               </h3>
             </div>
@@ -51,8 +51,7 @@ const Footer: React.FC = () => {
               We create cutting-edge digital solutions for businesses looking to make an impact in the digital world.
             </p>
             <div className="flex space-x-4 pt-2">
-              <SocialIcon icon={<FaFacebookF />} href="https://facebook.com" />
-              <SocialIcon icon={<FaTwitter />} href="https://twitter.com" />
+              <SocialIcon icon={<FaFacebookF />} href="https://www.facebook.com/people/It-Services/61575871126416/" />
               <SocialIcon icon={<FaInstagram />} href="https://www.instagram.com/accounts/login/?next=%2Fitse_rvices8525%2F&source=omni_redirect" />
               <SocialIcon icon={<FaLinkedinIn />} href="https://www.linkedin.com/in/it-services-a9b546365/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3B6u7a%2BIqjTPeLI5C5X%2FQTjQ%3D%3D " />
             </div>

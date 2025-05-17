@@ -100,7 +100,7 @@ export default function ITServicesBlog() {
           <div className="inline-block mb-6 px-4 py-1 bg-violet-900 bg-opacity-30 rounded-full">
             <span className="text-violet-300 font-medium">Elevate Your Digital Presence</span>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-violet-300 to-white bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-violet-300 to-white bg-clip-text text-transparent p-4 x">
             Transform Your Business Through Strategic Digital Solutions
           </h1>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mb-10">
@@ -182,10 +182,6 @@ export default function ITServicesBlog() {
                 {services[activeService].businessValue}
               </p>
             </div>
-
-            <button className="mt-4 text-violet-300 hover:text-white flex items-center font-medium transition-colors duration-200">
-              Learn more about {services[activeService].title} <ArrowRight size={16} className="ml-2" />
-            </button>
           </div>
         </div>
       </section>
