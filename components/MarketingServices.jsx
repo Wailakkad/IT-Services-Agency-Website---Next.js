@@ -8,42 +8,35 @@ const ITServices = () => {
       icon: "code",
       title: "Static Websites",
       description: "We build fast, responsive, and SEO-friendly static websites tailored to your business needs.",
-      learnMoreLink: "#static-websites"
+      learnMoreLink: "/pages/services"
     },
     {
       id: 2,
       icon: "layout",
       title: "Landing Pages",
       description: "High-converting landing pages designed to capture leads and drive sales.",
-      learnMoreLink: "#landing-pages"
+      learnMoreLink: "/pages/services"
     },
     {
       id: 3,
       icon: "design",
       title: "UI/UX Design",
       description: "Beautiful and intuitive designs that enhance user experience and engagement.",
-      learnMoreLink: "#ui-ux-design"
+      learnMoreLink: "/pages/services"
     },
     {
       id: 4,
       icon: "maintenance",
       title: "Maintenance",
       description: "Ongoing support and maintenance to keep your website running smoothly.",
-      learnMoreLink: "#maintenance"
+      learnMoreLink: "/pages/services"
     },
     {
       id: 5,
-      icon: "seo",
-      title: "SEO Optimization",
-      description: "Boost your website's visibility on search engines with our SEO strategies.",
-      learnMoreLink: "#seo"
-    },
-    {
-      id: 6,
       icon: "branding",
       title: "Branding & Digital",
       description: "Craft a unique brand identity and establish a strong digital presence with our expert branding and digital design services.",
-      learnMoreLink: "#branding-digital",
+      learnMoreLink: "/pages/services"
     }
   ];
 
