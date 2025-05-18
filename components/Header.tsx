@@ -34,26 +34,32 @@ const Header = () => {
   }, []);
 
   // Function to handle smooth scrolling
-  const scrollToSection = (sectionId: string, e: React.MouseEvent<HTMLAnchorElement>) => {
-  if (e) {
-    e.preventDefault();
-    e.stopPropagation(); // Stop event propagation
-  }
+  const scrollToSection = (sectionId: string, e: React.MouseEvent<HTMLAnchorElement> | null) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation(); // Stop event propagation
+    }
 
-  setMobileMenuOpen(false);
-  setPackDropdownOpen(false);
+    setMobileMenuOpen(false);
+    setPackDropdownOpen(false);
 
-  const section = document.getElementById(sectionId);
-  if (section) {
-    window.scrollTo({
-      top: section.offsetTop - 80, // Offset for header height
-      behavior: 'smooth',
-    });
-  }
-};
+    const section = document.getElementById(sectionId);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - 80, // Offset for header height
+        behavior: 'smooth',
+      });
+    }
+  };
 
   return (
-    <div className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'py-2 bg-black/80 backdrop-blur-md shadow-lg shadow-purple-500/10' : 'py-4 bg-black/10 backdrop-blur-sm'}`}>
+    <div className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      mobileMenuOpen 
+        ? 'md:bg-black/80 md:backdrop-blur-md bg-black' // Solid black for mobile/tablet, blur for desktop
+        : scrolled 
+          ? 'py-2 bg-black/80 backdrop-blur-md shadow-lg shadow-purple-500/10' 
+          : 'py-4 bg-black/10 backdrop-blur-sm'
+    }`}>
       <div className='container mx-auto px-4 lg:px-8 flex items-center justify-between'>
         {/* Logo */}
         <div className='flex items-center group cursor-pointer'>
@@ -92,7 +98,7 @@ const Header = () => {
         </button>
         
         {/* Desktop Navigation */}
-        <nav className='hidden md:flex items-center gap-1 lg:gap-2'>
+        <nav className='hidden  md:flex items-center gap-1 lg:gap-2'>
           {['home', 'about', 'services', 'portfolio'].map((item) => (
             <a
               key={item}
@@ -151,7 +157,7 @@ const Header = () => {
             )}
           </div>
           
-          {/* Contact Button - FIXED */}
+          {/* Contact Button */}
           <Link 
             href="/pages/contactPage"
             onClick={(e) => e.stopPropagation()}
@@ -169,8 +175,22 @@ const Header = () => {
       
       {/* Mobile Menu */}
       <div 
-        className={`md:hidden fixed inset-0 bg-black/95 backdrop-blur-lg z-40 transition-all duration-300 transform ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`md:hidden fixed inset-0 bg-black z-40 transition-all duration-300 transform ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
+        {/* Close Button for Mobile Menu */}
+        <button 
+          onClick={(e) => {
+            e.stopPropagation();
+            setMobileMenuOpen(false);
+          }}
+          className="absolute top-6 right-6 text-white p-2 focus:outline-none"
+          aria-label="Close menu"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        
         <div className="flex flex-col h-full pt-20 px-6">
           {['home', 'about', 'services', 'portfolio'].map((item) => (
             <a
@@ -229,7 +249,7 @@ const Header = () => {
             )}
           </div>
           
-          {/* Mobile Contact Button - FIXED */}
+          {/* Mobile Contact Button */}
           <Link
             href="/pages/contactPage"
             onClick={(e) => e.stopPropagation()}
