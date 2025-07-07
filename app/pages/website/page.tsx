@@ -2,6 +2,11 @@
 
 import Link from "next/link";
 
+import website1 from "@/assets/websites/website1.jpg";
+import website2 from "@/assets/websites/website2.jpg";
+import website3 from "@/assets/websites/website3.jpg";
+import Image from "next/image";
+
 interface LandingPricingCardProps {
   color: "green" | "blue" | "purple";
   tier: string;
@@ -124,9 +129,204 @@ const PricingCard = ({
   );
 };
 
+const HeroVideoSection = () => {
+  return (
+    <section className="relative overflow-hidden bg-black text-white py-24 md:py-32">
+      {/* Animated gradient background orbs */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute -left-20 top-10 h-96 w-96 rounded-full bg-gradient-to-br from-pink-500/30 to-fuchsia-600/20 blur-3xl animate-pulse opacity-40" style={{ animationDuration: '8s' }}></div>
+        <div className="absolute -right-32 top-1/4 h-80 w-80 rounded-full bg-gradient-to-bl from-violet-500/25 to-purple-600/15 blur-3xl animate-pulse opacity-50" style={{ animationDuration: '12s' }}></div>
+        <div className="absolute left-1/3 bottom-0 h-64 w-96 rounded-full bg-gradient-to-tr from-fuchsia-500/20 to-pink-500/10 blur-3xl animate-pulse opacity-30" style={{ animationDuration: '10s' }}></div>
+        <div className="absolute right-10 bottom-1/4 h-72 w-72 rounded-full bg-gradient-to-tl from-violet-400/15 to-indigo-500/10 blur-3xl animate-pulse opacity-35" style={{ animationDuration: '14s' }}></div>
+      </div>
+
+      {/* Subtle grid pattern overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] opacity-20"></div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-8">
+        {/* Hero Video Section */}
+        <div className="mb-20 text-center">
+          <div className="mb-6 space-y-4">
+            <h2 className="text-4xl font-bold text-white md:text-6xl lg:text-7xl tracking-tight">
+              <span className="bg-gradient-to-r from-pink-400 via-fuchsia-500 to-violet-500 bg-clip-text text-transparent drop-shadow-2xl">
+                Premium
+              </span>
+              <br />
+              <span className="text-white/90">Web Experiences</span>
+            </h2>
+            <p className="mx-auto max-w-2xl text-lg md:text-xl text-zinc-400 leading-relaxed">
+              Watch our design process transform ambitious ideas into 
+              <span className="text-fuchsia-300 font-medium"> stunning digital realities</span>
+            </p>
+          </div>
+          
+          {/* Video Container with luxurious styling */}
+          <div className="relative mx-auto max-w-5xl group">
+            {/* Outer glow effect */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-pink-500/20 via-fuchsia-500/30 to-violet-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-700 animate-pulse"></div>
+            
+            {/* Main video container */}
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-pink-500/10 via-fuchsia-500/5 to-violet-500/10 p-1 backdrop-blur-sm">
+              <div className="relative overflow-hidden rounded-xl bg-zinc-900/80 backdrop-blur-md border border-zinc-800/50">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-auto max-h-[28rem] md:max-h-[32rem] object-cover transition-all duration-700 group-hover:scale-[1.02]"
+                >
+                  <source src="/v.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                
+                {/* Video overlay with gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                
+                {/* Play button overlay (appears on hover) */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                  <div className="flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-r from-pink-500 to-fuchsia-600 shadow-2xl transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                    <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Call-to-action section */}
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link 
+              href="/pages/contactPage" 
+              className="group relative overflow-hidden rounded-full bg-gradient-to-r from-pink-500 to-fuchsia-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:shadow-2xl hover:shadow-fuchsia-500/30 hover:scale-105"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                Get Your Quote
+                <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-fuchsia-600 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
+            </Link>
+            
+            <button className="group flex items-center gap-2 text-zinc-400 hover:text-fuchsia-300 transition-colors duration-300">
+              <div className="flex items-center justify-center w-10 h-10 rounded-full border border-zinc-700 group-hover:border-fuchsia-500/50 transition-colors duration-300">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.01M15 10h1.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <span className="text-sm font-medium">See Live Demo</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Portfolio Gallery Section */}
+        <div className="text-center">
+          <div className="mb-6 space-y-3">
+            <h3 className="text-3xl md:text-4xl font-bold text-white">
+              <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
+                Featured
+              </span> Projects
+            </h3>
+            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
+              Discover our portfolio of exceptional websites crafted with precision and creative flair
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3 mt-16">
+            {/* Website 1 */}
+            <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-violet-900/20 to-purple-900/20 p-1 transition-all duration-500 hover:shadow-2xl hover:shadow-violet-500/20 hover:translate-y-[-12px]">
+              <div className="relative overflow-hidden rounded-xl bg-zinc-900/80 backdrop-blur-sm border border-zinc-800/50 p-4">
+                <div className="relative overflow-hidden rounded-lg">
+                  <Image
+                    src={website1}
+                    alt="Creative Website Design"
+                    className="w-full h-56 object-cover transition-all duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-violet-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                  <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                    <span className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold bg-gradient-to-r from-violet-500/90 to-purple-500/90 text-white rounded-full backdrop-blur-md border border-violet-400/30">
+                      <span className="w-2 h-2 bg-violet-300 rounded-full animate-pulse"></span>
+                      Creative Design
+                    </span>
+                  </div>
+                </div>
+                <div className="mt-6 text-center">
+                  <h4 className="text-xl font-bold text-white group-hover:text-violet-200 transition-colors duration-300 mb-2">
+                    Modern Portfolio
+                  </h4>
+                  <p className="text-sm text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300">
+                    Bold visuals with seamless interactions
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Website 2 */}
+            <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-fuchsia-900/20 to-pink-900/20 p-1 transition-all duration-500 hover:shadow-2xl hover:shadow-fuchsia-500/20 hover:translate-y-[-12px]">
+              <div className="relative overflow-hidden rounded-xl bg-zinc-900/80 backdrop-blur-sm border border-zinc-800/50 p-4">
+                <div className="relative overflow-hidden rounded-lg">
+                  <Image
+                    src={website2}
+                    alt="Professional Website Design"
+                    className="w-full h-56 object-cover transition-all duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-fuchsia-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                  <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                    <span className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold bg-gradient-to-r from-fuchsia-500/90 to-pink-500/90 text-white rounded-full backdrop-blur-md border border-fuchsia-400/30">
+                      <span className="w-2 h-2 bg-fuchsia-300 rounded-full animate-pulse"></span>
+                      Professional
+                    </span>
+                  </div>
+                </div>
+                <div className="mt-6 text-center">
+                  <h4 className="text-xl font-bold text-white group-hover:text-fuchsia-200 transition-colors duration-300 mb-2">
+                    Business Excellence
+                  </h4>
+                  <p className="text-sm text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300">
+                    Conversion-focused and performance-driven
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Website 3 */}
+             <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-fuchsia-900/20 to-pink-900/20 p-1 transition-all duration-500 hover:shadow-2xl hover:shadow-fuchsia-500/20 hover:translate-y-[-12px]">
+              <div className="relative overflow-hidden rounded-xl bg-zinc-900/80 backdrop-blur-sm border border-zinc-800/50 p-4">
+                <div className="relative overflow-hidden rounded-lg">
+                  <Image
+                    src={website3}
+                    alt="Professional Website Design"
+                    className="w-full h-56 object-cover transition-all duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-fuchsia-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                  <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                    <span className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold bg-gradient-to-r from-fuchsia-500/90 to-pink-500/90 text-white rounded-full backdrop-blur-md border border-fuchsia-400/30">
+                      <span className="w-2 h-2 bg-fuchsia-300 rounded-full animate-pulse"></span>
+                      Professional
+                    </span>
+                  </div>
+                </div>
+                <div className="mt-6 text-center">
+                  <h4 className="text-xl font-bold text-white group-hover:text-fuchsia-200 transition-colors duration-300 mb-2">
+                    Business Excellence
+                  </h4>
+                  <p className="text-sm text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300">
+                    Conversion-focused and performance-driven
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 const PricingDemo = () => {
   return (
-    <section className="relative overflow-hidden bg-black text-white min-h-screen">
+   <>
+         <section className="relative overflow-hidden bg-black text-white min-h-screen">
       {/* Back to Home Arrow */}
       <Link href="/" className="absolute left-6 top-6 z-20 group">
         <div className="flex items-center gap-2">
@@ -228,7 +428,12 @@ const PricingDemo = () => {
           />
         </div>
       </div>
-    </section>
+         </section>
+
+
+
+         <HeroVideoSection />
+   </>
   );
 };
 
