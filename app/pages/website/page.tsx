@@ -129,6 +129,8 @@ const PricingCard = ({
   );
 };
 
+
+
 const HeroVideoSection = () => {
   return (
     <section className="relative overflow-hidden bg-black text-white py-24 md:py-32">
