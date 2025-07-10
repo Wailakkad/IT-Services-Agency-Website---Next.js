@@ -18,14 +18,21 @@ import project11 from "@/assets/websites/project11.jpg";
 import project12 from "@/assets/websites/project12.jpg";
 import project13 from "@/assets/websites/project13.jpg";
 import project14 from "@/assets/websites/project14.png";
+import P_branding1 from "@/assets/branding/branding1.png";
+import P_branding2 from "@/assets/branding/branding2.png";
+import P_branding3 from "@/assets/branding/branding3.png";
+import P_branding4 from "@/assets/branding/branding4.png";
+
+
 
 interface Project {
   id: number;
   title: string;
   description: string;
-  image: StaticImageData; // Use StaticImageData for the image type
+  image: StaticImageData; 
   category: string;
   link: string;
+  technologies: string; // Add this line
 }
 
 const PortfolioPage = () => {
@@ -36,7 +43,8 @@ const PortfolioPage = () => {
       description: "A modern e-commerce solution with seamless payment integration and responsive design.",
       image: project1,
       category: "Websites",
-      link: "#"
+      link: "#",
+      technologies: "React, Next.js, Tailwind CSS", // Add this line
     },
     {
       id: 2,
@@ -44,7 +52,8 @@ const PortfolioPage = () => {
       description: "Professional landing page designed for maximum conversion and brand identity.",
       image: project2,
       category: "Landing Page",
-      link: "#"
+      link: "#",
+      technologies: "React, Next.js, Tailwind CSS",
     },
     {
       id: 3,
@@ -52,7 +61,8 @@ const PortfolioPage = () => {
       description: "Creative portfolio website showcasing artistic work with elegant animations.",
       image: project3,
       category: "Websites",
-      link: "#"
+      link: "#",
+      technologies: "React, Next.js, Tailwind CSS",
     },
     {
       id: 4,
@@ -60,7 +70,8 @@ const PortfolioPage = () => {
       description: "Interactive booking platform with real-time availability and user-friendly interface.",
       image: project4,
       category: "Websites",
-      link: "#"
+      link: "#",
+      technologies: "React, Next.js, Tailwind CSS",
     },
     {
       id: 5,
@@ -68,7 +79,8 @@ const PortfolioPage = () => {
       description: "Comprehensive dashboard with analytics and user management features.",
       image: project5,
       category: "Websites",
-      link: "#"
+      link: "#",
+      technologies: "React, Next.js, Tailwind CSS",
     },
     {
       id: 6,
@@ -76,7 +88,8 @@ const PortfolioPage = () => {
       description: "serum product landing page with a focus on user engagement and lead generation.",
       image: project7,
       category: "Landing Page",
-      link: "#"
+      link: "#",
+      technologies: "HTML, CSS, JavaScript",
     },
       {
       id: 7,
@@ -84,7 +97,8 @@ const PortfolioPage = () => {
       description: "Natural skincare product landing page with a focus on user engagement and lead generation.",
       image: project8,
       category: "Landing Page",
-      link: "#"
+      link: "#",
+      technologies: "HTML, CSS, JavaScript",
     },
       {
       id: 8,
@@ -92,7 +106,8 @@ const PortfolioPage = () => {
       description: "it agency landing page with a focus on user engagement and lead generation.", 
       image: project9,
       category: "Landing Page",
-      link: "#"
+      link: "#",
+      technologies: "HTML, CSS, JavaScript",
     },
       {
       id: 9,
@@ -100,7 +115,9 @@ const PortfolioPage = () => {
       description: "designer portfolio with a focus on user engagement and lead generation.",
       image: project10,
       category: "Portfolio",
-      link: "#"
+      link: "#",
+      technologies: "React, Next.js, Tailwind CSS"
+      
     },
     {
       id: 10,
@@ -108,7 +125,8 @@ const PortfolioPage = () => {
       description: "designer portfolio with a focus on user engagement and lead generation.",
       image: project11,
       category: "Portfolio",
-      link: "#"
+      link: "#",
+      technologies: "React, Next.js, Tailwind CSS"
     },
     {
       id: 11,
@@ -116,7 +134,8 @@ const PortfolioPage = () => {
       description: "ui/ux Designer portfolio with a focus on user engagement and lead generation.",
       image: project12,
       category: "Portfolio",
-      link: "#"
+      link: "#",
+      technologies: "React, Next.js, Tailwind CSS"
     },
      {
       id: 12,
@@ -124,7 +143,8 @@ const PortfolioPage = () => {
       description: "freelance web portfolio with a focus on user engagement and lead generation.",
       image: project13,
       category: "Portfolio",
-      link: "#"
+      link: "#",
+      technologies: "React, Next.js, Tailwind CSS"
     },
      {
       id: 13,
@@ -132,8 +152,47 @@ const PortfolioPage = () => {
       description: "travel agency website with a focus on user engagement and lead generation.",
       image: project14,
       category: "Websites",
-      link: "#"
+      link: "#",
+      technologies: "React, Next.js, Tailwind CSS"
     },
+   {
+  id: 14,
+  title: "Motion Branding & Platform Design",
+  description: "A sleek and modern brand identity for a community-focused platform. Designed to enhance trust, engagement, and digital presence across mobile and desktop.",
+  image: P_branding1,
+  category: "Branding",
+  link: "#",
+  technologies: "Figma, Photoshop, Illustrator"
+},
+
+    {
+  id: 15,
+  title: "Luxbrick Homes – Premium Real Estate Branding",
+  description: "A high-end brand identity for a luxury real estate company. Designed to evoke sophistication, trust, and architectural elegance across signage, print, digital platforms, and outdoor advertising.",
+  image: P_branding2,
+  category: "Branding",
+  link: "#",
+  technologies: "Figma, Photoshop, Illustrator"
+},{
+  id: 16,
+  title: "Lumina Living – Elegant Stationery & Brand Identity",
+  description: "A refined and cohesive brand identity crafted for Lumina Living. This elegant design system features a modern logo and premium stationery set, reflecting trust, sophistication, and a strong presence across both digital and print touchpoints.",
+  image: P_branding3,
+  category: "Branding",
+  link: "#",
+  technologies: "Figma, Photoshop, Illustrator"
+},
+
+     {
+  id: 17,
+  title: "Mayeli – Luxury Fashion & Lifestyle Branding",
+  description: "A premium brand identity for Mayeli, blending timeless elegance with modern luxury. Featuring a refined logotype with regal elements, this branding captures sophistication and style across fashion visuals and high-end lifestyle marketing.",
+  image: P_branding4,
+  category: "Branding",
+  link: "#",
+  technologies: "Figma, Photoshop, Illustrator"
+}
+
   ];
 
   const [filter, setFilter] = useState('All');
@@ -251,6 +310,7 @@ const PortfolioPage = () => {
             </div>
           ))}
         </div>
+        
 
         {/* Modal/Popup for project details */}
         {isModalOpen && selectedProject && (
@@ -300,10 +360,10 @@ const PortfolioPage = () => {
                       <p className="text-gray-400">Services:</p>
                       <p className="text-white">Web Design, Development</p>
                     </div>
-                    <div>
+                   <div>
                       <p className="text-gray-400">Technologies:</p>
-                      <p className="text-white">React, Next.js, Tailwind CSS</p>
-                    </div>
+                      <p className="text-white">{selectedProject.technologies}</p>
+                   </div>
                   </div>
                 </div>
                 
