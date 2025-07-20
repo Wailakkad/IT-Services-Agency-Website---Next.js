@@ -9,79 +9,90 @@ import  Testimonials  from "@/components/Reviews"
 import  InfiniteSliderBasic  from "@/components/InfinityCarousel"
 import { Vortex } from "@/components/ui/vortex";
 import Link from "next/link";
-
+import img1 from "@/public/imageProjects/coachHomePage.jpg"
+import img2 from "@/public/imageProjects/construction.jpg"
+import img3 from "@/public/imageProjects/construction2.jpg"
+import img4 from "@/public/imageProjects/educationMobile.jpg"
+import img5 from "@/public/imageProjects/jewerly.jpg"
+import img6 from "@/public/imageProjects/shopCloths.jpg"
+import img7 from "@/public/imageProjects/space.jpg"
+import img8 from "@/public/imageProjects/jewerlyPhone.jpg"
+import img9 from "@/public/imageProjects/coachAbout.jpg"
+import img10 from "@/public/imageProjects/jewwrly2.jpg"
+import img11 from "@/public/imageProjects/shopFasion.jpg"
+import img12 from "@/public/imageProjects/jewerlyPhone.jpg"
 const products = [
   {
     id: 1,
     title: "Project_1",
     link: "/pages/portfolio",
-    thumbnail: "https://i.pinimg.com/736x/43/ae/4f/43ae4f74391da19c8002556643abee01.jpg",
+    thumbnail: img3,
   },
   {
     id: 2,
     title: "Project_2",
     link: "/pages/portfolio",
-    thumbnail: "https://i.pinimg.com/736x/ea/6e/94/ea6e9461504e45d004e6ce9e55c65750.jpg",
+    thumbnail: img2,
   },
   {
     id: 3,
     title: "Project_3",
     link: "/pages/portfolio",
-    thumbnail: "https://i.pinimg.com/736x/b0/33/4c/b0334caa4f6f092d8bb019a66a33c2d0.jpg",
+    thumbnail: img1 ,
   },
   {
     id: 4,
     title: "Project_4",
     link: "/pages/portfolio",
-    thumbnail: "https://i.pinimg.com/736x/dc/0c/46/dc0c46529061e684be6db846c4c3c86d.jpg",
+    thumbnail: img4,
   },
   {
     id: 5,
     title: "Project_5",
     link: "/pages/portfolio",
-    thumbnail: "https://i.pinimg.com/736x/43/ae/4f/43ae4f74391da19c8002556643abee01.jpg",
+    thumbnail: img5,
   },
   {
     id: 6,
     title: "Project_6",
     link: "/pages/portfolio",
-    thumbnail: "https://i.pinimg.com/736x/ea/6e/94/ea6e9461504e45d004e6ce9e55c65750.jpg",
+    thumbnail:img6,
   },
   {
     id: 7,
     title: "Project_7",
     link: "/pages/portfolio",
-    thumbnail: "https://i.pinimg.com/736x/b0/33/4c/b0334caa4f6f092d8bb019a66a33c2d0.jpg",
+    thumbnail: img7,
   },
   {
     id: 8,
     title: "Project_8",
     link: "/pages/portfolio",
-    thumbnail: "https://i.pinimg.com/736x/dc/0c/46/dc0c46529061e684be6db846c4c3c86d.jpg",
+    thumbnail: img8,
   },
   {
     id: 9,
     title: "Project_9",
     link: "/pages/portfolio",
-    thumbnail: "https://i.pinimg.com/736x/43/ae/4f/43ae4f74391da19c8002556643abee01.jpg",
+    thumbnail: img9,
   },
   {
     id: 10,
     title: "Project_10",
     link: "/pages/portfolio",
-    thumbnail: "https://i.pinimg.com/736x/ea/6e/94/ea6e9461504e45d004e6ce9e55c65750.jpg",
+    thumbnail: img10,
   },
   {
     id: 11,
     title: "Project_11",
     link: "/pages/portfolio",
-    thumbnail: "https://i.pinimg.com/736x/b0/33/4c/b0334caa4f6f092d8bb019a66a33c2d0.jpg",
+    thumbnail: img11,
   },
   {
     id: 12,
     title: "Project_12",
     link: "/pages/portfolio",
-    thumbnail: "https://i.pinimg.com/736x/dc/0c/46/dc0c46529061e684be6db846c4c3c86d.jpg",
+    thumbnail: img12,
   },
   {
     id: 13,

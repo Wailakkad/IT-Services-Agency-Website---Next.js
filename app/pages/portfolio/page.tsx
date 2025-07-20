@@ -18,6 +18,12 @@ import project11 from "@/assets/websites/project11.jpg";
 import project12 from "@/assets/websites/project12.jpg";
 import project13 from "@/assets/websites/project13.jpg";
 import project14 from "@/assets/websites/project14.png";
+import project15 from "@/assets/websites/constraction.png";
+import project16 from "@/assets/websites/fashion.jpg";
+import project17 from "@/assets/websites/creap.png";
+import project18 from "@/assets/websites/jewerly.jpg";
+import project19 from "@/assets/websites/myPortfolio.jpg";
+import project20 from "@/assets/websites/resturent.png";
 import P_branding1 from "@/assets/branding/branding1.png";
 import P_branding2 from "@/assets/branding/branding2.png";
 import P_branding3 from "@/assets/branding/branding3.png";
@@ -191,7 +197,53 @@ const PortfolioPage = () => {
   category: "Branding",
   link: "#",
   technologies: "Figma, Photoshop, Illustrator"
+},
+   {
+  id: 18,
+  title: "Construction Company Landing Page",
+  description: "A professional and modern website designed for a construction company, showcasing services, testimonials, and a quote request form. Built with React, Next.js, and Tailwind CSS for speed and responsiveness.",
+  image: project15,
+  category: "Websites",
+  link: "#",
+  technologies: "React, Next.js, Tailwind CSS"
+},
+{
+  id: 19,
+  title: "Le Petit Brunch – Modern Brunch Café Website",
+  description: "A refined and elegant website for a Barcelona-based brunch café, designed to highlight its cozy ambiance, curated menu, and photo-rich storytelling. Built with modern web technologies for a seamless and responsive user experience.",
+  image: project17,
+  category: "Websites",
+  link: "#",
+  technologies: "React, Next.js, Tailwind CSS"
+},
+{
+  id: 20,
+  title: "Wild Style – Modern Fashion E-Commerce UI",
+  description: "A high-end fashion e-commerce UI/UX design featuring a bold aesthetic, smooth layout transitions, and product-focused storytelling. Tailored for brands seeking a sleek, premium online shopping experience.",
+  image: project16,
+  category: "UI/UX Design",
+  link: "#",
+  technologies: "Figma, Photoshop"
+},
+{
+  id: 21,
+  title: "Jewelry E-Commerce UI – Elegant Shopping Experience",
+  description: "A refined UI/UX design for a luxury jewelry brand, showcasing products with minimal elegance and rich visual storytelling. Designed for a seamless shopping journey with clear product focus and high-end aesthetic appeal.",
+  image: project18,
+  category: "UI/UX Design",
+  link: "#",
+  technologies: "Figma, Adobe XD"
+},
+{
+  id: 22,
+  title: "Modern Developer Portfolio",
+  description: "A sleek and responsive personal portfolio website showcasing full-stack projects, skills, and contact details. Built to reflect a clean design and professional developer branding.",
+  image: project19,
+  category: "Portfolio",
+  link: "#",
+  technologies: "React, Next.js, Tailwind CSS"
 }
+
 
   ];
 
