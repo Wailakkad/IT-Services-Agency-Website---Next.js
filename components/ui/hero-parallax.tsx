@@ -9,15 +9,18 @@ import {
 } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
+import { StaticImageData } from "next/image";
+
+interface Product {
+  title: string;
+  link: string;
+  thumbnail: string | StaticImageData;
+}
 
 export const HeroParallax = ({
   products,
 }: {
-  products: {
-    title: string;
-    link: string;
-    thumbnail: any;
-  }[];
+  products: Product[];
 }) => {
   const firstRow = products.slice(0, 5);
   const secondRow = products.slice(5, 10);
@@ -131,11 +134,7 @@ export const ProductCard = ({
   product,
   translate,
 }: {
-  product: {
-    title: string;
-    link: string;
-    thumbnail: string;
-  };
+  product: Product;
   translate: MotionValue<number>;
 }) => {
   return (

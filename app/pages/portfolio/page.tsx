@@ -23,7 +23,6 @@ import project16 from "@/assets/websites/fashion.jpg";
 import project17 from "@/assets/websites/creap.png";
 import project18 from "@/assets/websites/jewerly.jpg";
 import project19 from "@/assets/websites/myPortfolio.jpg";
-import project20 from "@/assets/websites/resturent.png";
 import P_branding1 from "@/assets/branding/branding1.png";
 import P_branding2 from "@/assets/branding/branding2.png";
 import P_branding3 from "@/assets/branding/branding3.png";
