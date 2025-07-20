@@ -187,19 +187,45 @@ const Header = () => {
             )}
           </div>
           
-          {/* Contact Button */}
-          <Link 
-            href="/pages/contactPage"
-            onClick={(e) => e.stopPropagation()}
-            className="ml-2 relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-medium text-white transition-all duration-300 bg-black rounded-lg group hover:from-purple-700 hover:to-indigo-700"
-          >
-            <span className="relative flex items-center">
-              Contact
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-0 ml-0 group-hover:w-4 group-hover:ml-2 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </span>
-          </Link>
+         {/* Contact Button */}
+<Link
+  href="/pages/contactPage"
+  onClick={(e) => e.stopPropagation()}
+  className="ml-2 relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium text-white transition-all duration-500 ease-out rounded-2xl group hover:scale-105 active:scale-95"
+>
+  {/* Glassmorphism background layers */}
+  <div className="absolute inset-0 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 group-hover:border-white/40 transition-all duration-500"></div>
+  
+  {/* Animated gradient overlay */}
+  <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-white/10 to-white/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+  
+  {/* Glowing ring effect */}
+  <div className="absolute inset-0 rounded-2xl ring-0 ring-blue-400/30 group-hover:ring-2 group-hover:ring-blue-300/50 transition-all duration-500 ring-offset-0"></div>
+  
+  {/* Pulsing glow on hover */}
+  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-400/0 via-blue-400/0 to-purple-400/0 group-hover:from-cyan-400/20 group-hover:via-blue-400/20 group-hover:to-purple-400/20 blur-xl transition-all duration-500"></div>
+  
+  <span className="relative flex items-center font-semibold tracking-wide">
+    Contact
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      className="h-4 w-0 ml-0 group-hover:w-4 group-hover:ml-2 transition-all duration-300 ease-out transform group-hover:translate-x-1" 
+      fill="none" 
+      viewBox="0 0 24 24" 
+      stroke="currentColor"
+    >
+      <path 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+        strokeWidth={2} 
+        d="M14 5l7 7m0 0l-7 7m7-7H3" 
+      />
+    </svg>
+  </span>
+  
+  {/* Shimmer effect */}
+  <div className="absolute inset-0 -top-2 -bottom-2 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></div>
+</Link>
         </nav>
       </div>
       

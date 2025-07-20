@@ -9,8 +9,8 @@ import Chat from './Chat'
 import dynamic from 'next/dynamic';
 import { ArrowRight, Code, Palette, Layout, Sparkles } from 'lucide-react';
 
-// Dynamically import Spline to avoid SSR issues
-const Spline = dynamic(() => import('@splinetool/react-spline'), {
+// Dynamically import Spline with correct import path
+const Spline = dynamic(() => import('@splinetool/react-spline').then((mod) => ({ default: mod.default })), {
   ssr: false,
   loading: () => <div className="w-full h-full flex items-center justify-center text-white">Loading 3D Scene...</div>
 });
@@ -20,12 +20,13 @@ const Hero = () => {
     <section className="relative overflow-hidden bg-black px-6 py-20 lg:py-38">
       {/* Abstract background shapes */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-purple-400 blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-purple-600 blur-3xl opacity-30"></div>
         <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-indigo-600/20 blur-3xl"></div>
         <div className="absolute top-1/4 left-1/3 h-80 w-80 rounded-full bg-violet-800/15 blur-3xl"></div>
       </div>
       
       {/* Grid pattern overlay */}
+      
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBoMzB2MzBIMzB6IiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiIHN0cm9rZS13aWR0aD0iLjUiLz48cGF0aCBkPSJNMCAzMGgzMHYzMEgweiIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDMpIiBzdHJva2Utd2lkdGg9Ii41Ii8+PC9nPjwvc3ZnPg==')] opacity-20"></div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -33,13 +34,13 @@ const Hero = () => {
           {/* Content section */}
           <div className="w-full lg:w-1/2 text-center lg:text-left">
             <div className="inline-flex items-center px-3 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-indigo-200 text-sm font-medium mb-6">
-              <span className="flex h-2 w-2 rounded-full bg-indigo-400 mr-2"></span>
+              <span className="flex h-2 w-2 rounded-full bg-indigo-400 mr-2 animate-pulse"></span>
               Trusted by 500+ businesses worldwide
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               <span className="block text-white">Digital Solutions for</span>
-              <span className="bg-gradient-to-r from-indigo-200 via-purple-300 to-pink-200 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-indigo-200 via-purple-300 to-pink-200 bg-clip-text text-transparent animate-gradient">
                 Modern Businesses
               </span>
             </h1>
@@ -50,27 +51,25 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                 <Link href="/pages/services">
-                     <button className="px-6 py-3 bg-white text-indigo-900 font-medium rounded-lg hover:shadow-lg transition duration-300 flex items-center gap-2 group">
-                Start Your Project
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-                 </Link>
-             <Link href="/pages/portfolio">
-                 <button className="px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/10 text-white rounded-lg hover:bg-white/20 transition duration-300">
-                View Our Work
-              </button>
-             </Link>
+              <Link href="/pages/services">
+                <button className="px-6 py-3 bg-white text-indigo-900 font-medium rounded-lg hover:shadow-lg hover:shadow-white/20 transition-all duration-300 flex items-center gap-2 group">
+                  Start Your Project
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </Link>
+              <Link href="/pages/portfolio">
+                <button className="px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/10 text-white rounded-lg hover:bg-white/20 transition duration-300">
+                  View Our Work
+                </button>
+              </Link>
             </div>
-            
-        
           </div>
           
           {/* Visual section with Spline */}
           <div className="w-full lg:w-1/2 relative">
             {/* Spline 3D Scene */}
             <div className="w-full aspect-square max-w-lg mx-auto">
-              <div className="w-full h-full">
+              <div className="w-full h-full rounded-2xl overflow-hidden">
                 <Spline
                   scene="https://prod.spline.design/W-eFTVXHonhVV9T3/scene.splinecode"
                 />
@@ -82,13 +81,13 @@ const Hero = () => {
 
       <Chat />
 
-        {/* Services Section */}
+      {/* Services Section */}
       <div className="container mx-auto px-4 relative z-10 mt-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {/* Web Design Card */}
-          <div className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 cursor-pointer">
+          <div className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-purple-500/20">
             <div className="flex items-center justify-between mb-4">
-              <div className="p-3 bg-white/10 rounded-xl">
+              <div className="p-3 bg-white/10 rounded-xl group-hover:bg-white/20 transition-colors">
                 <Layout className="w-6 h-6 text-white" />
               </div>
               <ArrowRight className="w-5 h-5 text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
@@ -100,9 +99,9 @@ const Hero = () => {
           </div>
 
           {/* Development Card */}
-          <div className="group bg-white backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/90 transition-all duration-300 cursor-pointer">
+          <div className="group bg-white backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/90 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-indigo-500/20">
             <div className="flex items-center justify-between mb-4">
-              <div className="p-3 bg-black/10 rounded-xl">
+              <div className="p-3 bg-black/10 rounded-xl group-hover:bg-black/20 transition-colors">
                 <Code className="w-6 h-6 text-black" />
               </div>
               <ArrowRight className="w-5 h-5 text-black/60 group-hover:text-black group-hover:translate-x-1 transition-all duration-300" />
@@ -114,9 +113,9 @@ const Hero = () => {
           </div>
 
           {/* Branding Card */}
-          <div className="group bg-white backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/90 transition-all duration-300 cursor-pointer">
+          <div className="group bg-white backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/90 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-pink-500/20">
             <div className="flex items-center justify-between mb-4">
-              <div className="p-3 bg-black/10 rounded-xl">
+              <div className="p-3 bg-black/10 rounded-xl group-hover:bg-black/20 transition-colors">
                 <Palette className="w-6 h-6 text-black" />
               </div>
               <ArrowRight className="w-5 h-5 text-black/60 group-hover:text-black group-hover:translate-x-1 transition-all duration-300" />
@@ -128,9 +127,9 @@ const Hero = () => {
           </div>
 
           {/* AI Support Card */}
-          <div className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 cursor-pointer">
+          <div className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-violet-500/20">
             <div className="flex items-center justify-between mb-4">
-              <div className="p-3 bg-white/10 rounded-xl">
+              <div className="p-3 bg-white/10 rounded-xl group-hover:bg-white/20 transition-colors">
                 <Sparkles className="w-6 h-6 text-white" />
               </div>
               <ArrowRight className="w-5 h-5 text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
@@ -145,50 +144,50 @@ const Hero = () => {
         {/* Bottom Row */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* AI Assistant Card */}
-          <div className="lg:col-span-2 group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl  hover:bg-white/10 transition-all duration-300">
+          <div className="lg:col-span-2 group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300">
             <div className="flex items-center gap-6">
               <div className="flex-shrink-0">
-                {/* AI Robot Icon - You can replace this with your PNG */}
-                <Image  src={imgAi} alt="" className='w-[300px] h-[450px]' />
+                <Image 
+                  src={imgAi} 
+                  alt="AI Assistant Robot" 
+                  className='w-[300px] h-[450px] object-contain' 
+                  priority
+                />
               </div>
-              {/* ai ct action */}
               <div className="flex-1">
-                <h3 className="text-white font-semibold text-8xl mb-2">Meet your AI assistant—</h3>
+                <h3 className="text-white font-semibold text-4xl lg:text-6xl xl:text-8xl mb-2 leading-tight">
+                  Meet your AI assistant—
+                </h3>
                 <p className="text-white font-semibold text-xl mb-4">always on, always learning.</p>
-                <button className="px-[70px] py-4 mt-12 bg-white hover:bg-violet-700 hover:text-white cursor-pointer text-black rounded-lg font-medium transition-colors duration-300 flex items-center gap-2">
-                  GO 1 MIN
+                <button className="px-12 lg:px-16 xl:px-20 py-4 mt-12 bg-white hover:bg-violet-700 hover:text-white cursor-pointer text-black rounded-lg font-medium transition-all duration-300 flex items-center gap-2 group">
+                  <span>GO 1 MIN</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
-              {/* <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors duration-300">
-                  <ArrowRight className="w-6 h-6 text-white" />
-                </div>
-              </div> */}
             </div>
           </div>
 
-         {/* Stats Card */}
-<div className="group bg-white backdrop-blur-sm border border-white/20 rounded-2xl  hover:bg-white/90 transition-all duration-300 flex flex-col justify-between h-full">
-  <div className="text-center p-6">
-    <p className="text-black/70 text-sm font-medium mb-2">Prov Word for manjoo</p>
-    <div className="text-9xl font-bold text-black mb-2">24/7+</div>
-    <p className="text-black/70 text-sm">brands transformed</p>
-  </div>
-  
-  {/* Spline 3D Scene */}
- 
-    <div className="flex justify-center">
-        <Image  src={aiimg} alt="" className='w-[300px] h-[200px]' />
-    </div>
-  
-</div>
+          {/* Stats Card */}
+          <div className="group bg-white backdrop-blur-sm border border-white/20 rounded-2xl  hover:bg-white/90 transition-all duration-300 flex flex-col justify-between h-full">
+            <div className="text-center p-6">
+              <p className="text-black/70 text-sm font-medium mb-2">Prov Word for manjoo</p>
+              <div className="text-6xl lg:text-7xl xl:text-9xl font-bold text-black mb-2">24/7+</div>
+              <p className="text-black/70 text-sm">brands transformed</p>
+            </div>
+            
+            <div className="flex justify-center mt-4">
+              <Image 
+                src={aiimg} 
+                alt="AI Technology" 
+                className='w-[200px] lg:w-[250px] xl:w-[300px] h-[150px] lg:h-[175px] xl:h-[200px] object-contain' 
+                priority
+              />
+            </div>
+          </div>
         </div>
       </div>
-      
-  
     </section>
   );
 };
-
 
 export default Hero;
