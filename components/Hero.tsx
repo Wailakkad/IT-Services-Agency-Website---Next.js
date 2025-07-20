@@ -9,8 +9,8 @@ import Chat from './Chat'
 import dynamic from 'next/dynamic';
 import { ArrowRight, Code, Palette, Layout, Sparkles } from 'lucide-react';
 
-// Dynamically import Spline with correct import path
-const Spline = dynamic(() => import('@splinetool/react-spline').then((mod) => ({ default: mod.default })), {
+// Fixed dynamic import for Spline
+const Spline = dynamic(() => import('@splinetool/react-spline'), {
   ssr: false,
   loading: () => <div className="w-full h-full flex items-center justify-center text-white">Loading 3D Scene...</div>
 });
