@@ -1,0 +1,37 @@
+{
+  "agency": {
+    "name": "Webloom",
+    "location": "Casablanca, Morocco",
+    "description": "Webloom is a creative digital agency based in Casablanca, Morocco. We specialize in designing and developing high-impact websites and digital experiences for businesses across various industries."
+  },
+  "services": {
+    "uiuxDesign": "We design user-centered interfaces that are modern, responsive, and tailored to user behavior. Our design process includes wireframing, prototyping, and usability testing.",
+    "webDevelopment": "We build high-performing websites using modern technologies like React, Next.js, TypeScript, and Tailwind CSS. Our sites are optimized for speed, SEO, and mobile responsiveness.",
+    "branding": "From logo design to complete brand identity, we help you create a consistent and memorable brand image.",
+    "maintenance": "We offer regular maintenance, bug fixing, performance optimization, and redesign services. Whether you want to rebuild a website or make specific changes, we've got you covered.",
+    "customSolutions": "We provide tailored web solutions based on your business goals, industry needs, and customer expectations."
+  },
+  "industries": [
+    "Construction",
+    "Beauty",
+    "Health",
+    "Education",
+    "E-commerce",
+    "Technology",
+    "Real Estate",
+    "Hospitality"
+  ],
+  "faqs": {
+    "how_long_to_build_website": "Most websites take between 1 to 3 weeks depending on complexity, features, and client feedback speed.",
+    "do_you_offer_redesign": "Yes, we offer redesign and rebuild services for outdated or underperforming websites.",
+    "what_tech_stack_do_you_use": "We use modern technologies like React, Next.js, TypeScript, Tailwind CSS, Node.js, and headless CMS platforms.",
+    "do_you_work_with_small_businesses": "Yes, we work with businesses of all sizes — from startups to established enterprises.",
+    "do_you_offer_ai_chatbot_integration": "Yes, we can integrate AI chatbots into your website using tools like OpenRouter or OpenAI for enhanced customer support."
+  },
+  "contact": {
+    "email": "contact@webloom.agency",
+    "location": "Casablanca, Morocco",
+    "languages": ["French", "Arabic", "English"]
+  },
+  "mission": "Empowering businesses in Morocco and beyond with high-quality web design, branding, and technology that converts and grows their online presence."
+}

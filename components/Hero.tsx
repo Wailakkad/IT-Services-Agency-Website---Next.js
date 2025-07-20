@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import imgHero from "@/assets/hero.png"
 import Link from 'next/link';
+import ChatWidget from './ChatWidget'
 import { ArrowRight, Code, Palette, Layout, Sparkles } from 'lucide-react';
 
 const Hero = () => {
@@ -93,6 +94,8 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      <ChatWidget/>
       
   
     </section>
