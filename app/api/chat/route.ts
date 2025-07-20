@@ -40,6 +40,7 @@ Always respond in a friendly, professional tone without lengthy introductions un
     
     // Clean up formatting
     reply = reply
+      .replace(/<think>[\s\S]*?<\/think>/gi, '') // Remove thinking tags and content
       .replace(/\*\*/g, '') // Remove bold markdown
       .replace(/\*/g, '') // Remove italic markdown
       .replace(/\n{3,}/g, '\n\n') // Limit line breaks

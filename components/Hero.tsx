@@ -1,16 +1,26 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
-import imgHero from "@/assets/hero.png"
+import imgAi from "@/public/imageProjects/ai-chatbot.png"
+import aiimg from "@/public/imageProjects/secondAi.png"
 import Link from 'next/link';
 import Chat from './Chat'
+import dynamic from 'next/dynamic';
 import { ArrowRight, Code, Palette, Layout, Sparkles } from 'lucide-react';
+
+// Dynamically import Spline to avoid SSR issues
+const Spline = dynamic(() => import('@splinetool/react-spline'), {
+  ssr: false,
+  loading: () => <div className="w-full h-full flex items-center justify-center text-white">Loading 3D Scene...</div>
+});
 
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-indigo-950 via-purple-900 to-indigo-900 px-6 py-20 lg:py-38">
+    <section className="relative overflow-hidden bg-black px-6 py-20 lg:py-38">
       {/* Abstract background shapes */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-purple-600/20 blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-purple-400 blur-3xl"></div>
         <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-indigo-600/20 blur-3xl"></div>
         <div className="absolute top-1/4 left-1/3 h-80 w-80 rounded-full bg-violet-800/15 blur-3xl"></div>
       </div>
@@ -56,46 +66,124 @@ const Hero = () => {
         
           </div>
           
-          {/* Visual section */}
+          {/* Visual section with Spline */}
           <div className="w-full lg:w-1/2 relative">
-            {/* Main visual element */}
-            <div className="relative w-full aspect-square max-w-lg mx-auto">
-              {/* Main circular gradient background */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/30 via-purple-500/30 to-pink-500/30 rounded-full blur-md"></div>
-              
-              {/* 3D-like dashboard mockup */}
-              <div className="absolute inset-4 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-sm border border-white/10 shadow-xl transform  transition-all duration-700 overflow-hidden">
-                <Image
-                  src={imgHero}
-                  alt="Dashboard Mockup"
-                  layout="fill"
-                  
-                  className="rounded-2xl transform hover:scale-105 transition-transform duration-300 w-[20px]"
+            {/* Spline 3D Scene */}
+            <div className="w-full aspect-square max-w-lg mx-auto">
+              <div className="w-full h-full">
+                <Spline
+                  scene="https://prod.spline.design/W-eFTVXHonhVV9T3/scene.splinecode"
                 />
-              </div>
-              
-              {/* Floating service icons */}
-              <div className="absolute -top-4 -left-4 p-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10 shadow-lg transform rotate-6 hover:rotate-0 transition-all duration-300 animate-float">
-                <Code className="w-10 h-10 text-indigo-200" />
-              </div>
-              
-              <div className="absolute top-80 -right-6 p-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10 shadow-lg transform -rotate-6 hover:rotate-0 transition-all duration-300 animate-float-delay">
-                <Palette className="w-10 h-10 text-purple-200" />
-              </div>
-              
-              <div className="absolute -bottom-6 left-1/4 p-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10 shadow-lg transform rotate-12 hover:rotate-0 transition-all duration-300 animate-float-slow">
-                <Layout className="w-10 h-10 text-pink-200" />
-              </div>
-              
-              <div className="absolute top-10 -right-10 p-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10 shadow-lg transform -rotate-50 hover:rotate-0 transition-all duration-300 animate-float-slower">
-                <Sparkles className="w-10 h-10 text-indigo-200" />
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <Chat/>
+      <Chat />
+
+        {/* Services Section */}
+      <div className="container mx-auto px-4 relative z-10 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          {/* Web Design Card */}
+          <div className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 cursor-pointer">
+            <div className="flex items-center justify-between mb-4">
+              <div className="p-3 bg-white/10 rounded-xl">
+                <Layout className="w-6 h-6 text-white" />
+              </div>
+              <ArrowRight className="w-5 h-5 text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
+            </div>
+            <h3 className="text-white font-semibold text-lg mb-2">Web Design</h3>
+            <p className="text-white/70 text-sm leading-relaxed">
+              Zero downtime. 100% compliant websites. AI + split testing
+            </p>
+          </div>
+
+          {/* Development Card */}
+          <div className="group bg-white backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/90 transition-all duration-300 cursor-pointer">
+            <div className="flex items-center justify-between mb-4">
+              <div className="p-3 bg-black/10 rounded-xl">
+                <Code className="w-6 h-6 text-black" />
+              </div>
+              <ArrowRight className="w-5 h-5 text-black/60 group-hover:text-black group-hover:translate-x-1 transition-all duration-300" />
+            </div>
+            <h3 className="text-black font-semibold text-lg mb-2">Development</h3>
+            <p className="text-black/70 text-sm leading-relaxed">
+              Zero downtime. 100% monitored servers. AI work at startup
+            </p>
+          </div>
+
+          {/* Branding Card */}
+          <div className="group bg-white backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/90 transition-all duration-300 cursor-pointer">
+            <div className="flex items-center justify-between mb-4">
+              <div className="p-3 bg-black/10 rounded-xl">
+                <Palette className="w-6 h-6 text-black" />
+              </div>
+              <ArrowRight className="w-5 h-5 text-black/60 group-hover:text-black group-hover:translate-x-1 transition-all duration-300" />
+            </div>
+            <h3 className="text-black font-semibold text-lg mb-2">Branding</h3>
+            <p className="text-black/70 text-sm leading-relaxed">
+              Zero downtime. 100% prioritized creatives. AI + HeartContent
+            </p>
+          </div>
+
+          {/* AI Support Card */}
+          <div className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 cursor-pointer">
+            <div className="flex items-center justify-between mb-4">
+              <div className="p-3 bg-white/10 rounded-xl">
+                <Sparkles className="w-6 h-6 text-white" />
+              </div>
+              <ArrowRight className="w-5 h-5 text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
+            </div>
+            <h3 className="text-white font-semibold text-lg mb-2">AI Support</h3>
+            <p className="text-white/70 text-sm leading-relaxed">
+              Zero latetime. 24/7. 100% Blended support. AI + long learned
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* AI Assistant Card */}
+          <div className="lg:col-span-2 group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl  hover:bg-white/10 transition-all duration-300">
+            <div className="flex items-center gap-6">
+              <div className="flex-shrink-0">
+                {/* AI Robot Icon - You can replace this with your PNG */}
+                <Image  src={imgAi} alt="" className='w-[300px] h-[450px]' />
+              </div>
+              {/* ai ct action */}
+              <div className="flex-1">
+                <h3 className="text-white font-semibold text-8xl mb-2">Meet your AI assistant—</h3>
+                <p className="text-white font-semibold text-xl mb-4">always on, always learning.</p>
+                <button className="px-[70px] py-4 mt-12 bg-white hover:bg-violet-700 hover:text-white cursor-pointer text-black rounded-lg font-medium transition-colors duration-300 flex items-center gap-2">
+                  GO 1 MIN
+                </button>
+              </div>
+              {/* <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors duration-300">
+                  <ArrowRight className="w-6 h-6 text-white" />
+                </div>
+              </div> */}
+            </div>
+          </div>
+
+         {/* Stats Card */}
+<div className="group bg-white backdrop-blur-sm border border-white/20 rounded-2xl  hover:bg-white/90 transition-all duration-300 flex flex-col justify-between h-full">
+  <div className="text-center p-6">
+    <p className="text-black/70 text-sm font-medium mb-2">Prov Word for manjoo</p>
+    <div className="text-9xl font-bold text-black mb-2">24/7+</div>
+    <p className="text-black/70 text-sm">brands transformed</p>
+  </div>
+  
+  {/* Spline 3D Scene */}
+ 
+    <div className="flex justify-center">
+        <Image  src={aiimg} alt="" className='w-[300px] h-[200px]' />
+    </div>
+  
+</div>
+        </div>
+      </div>
       
   
     </section>

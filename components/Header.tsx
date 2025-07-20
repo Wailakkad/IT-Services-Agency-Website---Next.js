@@ -191,7 +191,7 @@ const Header = () => {
           <Link 
             href="/pages/contactPage"
             onClick={(e) => e.stopPropagation()}
-            className="ml-2 relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-medium text-white transition-all duration-300 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg group hover:from-purple-700 hover:to-indigo-700"
+            className="ml-2 relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-medium text-white transition-all duration-300 bg-black rounded-lg group hover:from-purple-700 hover:to-indigo-700"
           >
             <span className="relative flex items-center">
               Contact
@@ -313,7 +313,7 @@ const Header = () => {
                   e.stopPropagation();
                   setMobileMenuOpen(false);
                 }}
-                className='w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-4 rounded-lg text-center font-medium flex items-center justify-center'
+                className='w-full bg-gradient-to-r from-indigo-600 to-black text-white py-4 rounded-lg text-center font-medium flex items-center justify-center'
               >
                 <span>Contact Us</span>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
