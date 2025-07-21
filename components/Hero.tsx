@@ -1,19 +1,65 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import imgAi from "@/public/imageProjects/ai-chatbot.png"
 import aiimg from "@/public/imageProjects/secondAi.png"
 import Link from 'next/link';
 import Chat from './Chat'
-import dynamic from 'next/dynamic';
 import { ArrowRight, Code, Palette, Layout, Sparkles } from 'lucide-react';
 
-// Fixed dynamic import for Spline
-const Spline = dynamic(() => import('@splinetool/react-spline'), {
-  ssr: false,
-  loading: () => <div className="w-full h-full flex items-center justify-center text-white">Loading 3D Scene...</div>
-});
+// Spline Component using @splinetool/runtime
+interface SplineSceneProps {
+  scene: string;
+}
+
+const SplineScene: React.FC<SplineSceneProps> = ({ scene }) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    let app: any = null;
+    
+    const loadSpline = async () => {
+      try {
+        const { Application } = await import('@splinetool/runtime');
+        const canvas = canvasRef.current;
+        
+        if (canvas) {
+          app = new Application(canvas);
+          await app.load(scene);
+          setIsLoading(false);
+        }
+      } catch (error) {
+        console.error('Error loading Spline scene:', error);
+        setIsLoading(false);
+      }
+    };
+
+    loadSpline();
+
+    return () => {
+      if (app) {
+        app.dispose();
+      }
+    };
+  }, [scene]);
+
+  return (
+    <div className="relative w-full h-full">
+      {isLoading && (
+        <div className="absolute inset-0 w-full h-full flex items-center justify-center text-white z-10">
+          Loading 3D Scene...
+        </div>
+      )}
+      <canvas 
+        ref={canvasRef} 
+        className="w-full h-full"
+        style={{ display: isLoading ? 'none' : 'block' }}
+      />
+    </div>
+  );
+};
 
 const Hero = () => {
   return (
@@ -70,9 +116,7 @@ const Hero = () => {
             {/* Spline 3D Scene */}
             <div className="w-full aspect-square max-w-lg mx-auto">
               <div className="w-full h-full rounded-2xl overflow-hidden">
-                <Spline
-                  scene="https://prod.spline.design/W-eFTVXHonhVV9T3/scene.splinecode"
-                />
+                <SplineScene scene="https://prod.spline.design/W-eFTVXHonhVV9T3/scene.splinecode" />
               </div>
             </div>
           </div>
