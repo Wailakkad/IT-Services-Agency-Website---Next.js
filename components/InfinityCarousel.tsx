@@ -11,16 +11,10 @@ import Image from "next/image";
 
 function InfiniteSliderEnhanced() {
   return (
-    <div className="relative w-full overflow-hidden">
-      {/* Backdrop with blur effect */}
-      <div className="absolute inset-0 bg-black backdrop-blur-md"></div>
+    <div className="relative w-full overflow-hidden bg-black">
       
-      {/* Light effect overlay */}
-      <div className="absolute inset-0 bg-white/5 backdrop-blur-sm"></div>
       
-      {/* Glow effects */}
-      <div className="absolute -top-24 -left-24 w-48 h-48 bg-blue-500/30 rounded-full blur-3xl"></div>
-      <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-purple-500/30 rounded-full blur-3xl"></div>
+      
       
       {/* Content container */}
       <div className="relative z-10 py-12">

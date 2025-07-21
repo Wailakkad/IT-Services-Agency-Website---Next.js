@@ -8,6 +8,7 @@ import { HeroParallax } from "@/components/ui/hero-parallax";
 import  Testimonials  from "@/components/Reviews"
 import  InfiniteSliderBasic  from "@/components/InfinityCarousel"
 import { Vortex } from "@/components/ui/vortex";
+import { Seo } from "@/components/Seo";
 import Link from "next/link";
 import img1 from "@/public/imageProjects/coachHomePage.jpg"
 import img2 from "@/public/imageProjects/construction.jpg"
@@ -113,7 +114,14 @@ export default function Home() {
 
 
   return (
+    
     <>
+<Seo
+  title="Webloom | AI-Powered Web Development Agency in Morocco"
+  description="Webloom specializes in advanced web development with integrated AI chatbots. We build fast, conversion-focused websites and offer UI/UX design, branding, and automation services for coaches, builders, and business owners. "
+  url="https://it-services-agency-website-next-js-theta.vercel.app"
+  image="https://it-services-agency-website-next-js-theta.vercel.app/seoIMG.jpeg"
+/>
       <Header />
       <div id="hero">
         <Hero />
