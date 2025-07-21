@@ -8,6 +8,12 @@ import Link from 'next/link';
 import Chat from './Chat'
 import { ArrowRight, Code, Palette, Layout, Sparkles } from 'lucide-react';
 
+// Type definition for Spline Application
+interface SplineApplication {
+  load: (scene: string) => Promise<void>;
+  dispose: () => void;
+}
+
 // Spline Component using @splinetool/runtime
 interface SplineSceneProps {
   scene: string;
@@ -18,7 +24,7 @@ const SplineScene: React.FC<SplineSceneProps> = ({ scene }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    let app: any = null;
+    let app: SplineApplication | null = null;
     
     const loadSpline = async () => {
       try {
@@ -26,7 +32,7 @@ const SplineScene: React.FC<SplineSceneProps> = ({ scene }) => {
         const canvas = canvasRef.current;
         
         if (canvas) {
-          app = new Application(canvas);
+          app = new Application(canvas) as SplineApplication;
           await app.load(scene);
           setIsLoading(false);
         }
