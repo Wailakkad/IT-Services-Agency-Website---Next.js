@@ -120,9 +120,9 @@ const Hero = () => {
           {/* Visual section with Spline */}
           <div className="w-full lg:w-1/2 relative">
             {/* Spline 3D Scene */}
-            <div className="w-full aspect-square max-w-lg mx-auto">
+            <div className="w-[1000px] aspect-square max-w-lg mx-auto">
               <div className="w-full h-full rounded-2xl overflow-hidden">
-                <SplineScene scene="https://prod.spline.design/W-eFTVXHonhVV9T3/scene.splinecode" />
+                <SplineScene scene="https://prod.spline.design/OWQEhXsLsy3PAT-w/scene.splinecode" />
               </div>
             </div>
           </div>
