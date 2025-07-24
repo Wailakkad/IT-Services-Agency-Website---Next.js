@@ -249,24 +249,24 @@ Reply to: ${sanitizedData.email}
     await transporter.sendMail(mailOptions);
 
     // Optional: Send confirmation email to the user
-    const confirmationEmail = {
-      from: `"Your Website" <${process.env.ADMIN_EMAIL}>`,
-      to: sanitizedData.email,
-      subject: `Thank you for contacting us, ${sanitizedData.fullname}!`,
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-          <h2 style="color: #333;">Thank you for your message!</h2>
-          <p>Hi ${sanitizedData.fullname},</p>
-          <p>We've received your message and will get back to you as soon as possible.</p>
-          <div style="background: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0;">
-            <h3>Your message:</h3>
-            <p><strong>Subject:</strong> ${sanitizedData.subject}</p>
-            <p><strong>Message:</strong> ${sanitizedData.message}</p>
-          </div>
-          <p>Best regards,<br>Your Website Team</p>
-        </div>
-      `,
-    };
+    // const confirmationEmail = {
+    //   from: `"Your Website" <${process.env.ADMIN_EMAIL}>`,
+    //   to: sanitizedData.email,
+    //   subject: `Thank you for contacting us, ${sanitizedData.fullname}!`,
+    //   html: `
+    //     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+    //       <h2 style="color: #333;">Thank you for your message!</h2>
+    //       <p>Hi ${sanitizedData.fullname},</p>
+    //       <p>We've received your message and will get back to you as soon as possible.</p>
+    //       <div style="background: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0;">
+    //         <h3>Your message:</h3>
+    //         <p><strong>Subject:</strong> ${sanitizedData.subject}</p>
+    //         <p><strong>Message:</strong> ${sanitizedData.message}</p>
+    //       </div>
+    //       <p>Best regards,<br>Your Website Team</p>
+    //     </div>
+    //   `,
+    // };
 
     
 

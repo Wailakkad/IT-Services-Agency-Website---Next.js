@@ -255,9 +255,9 @@ const ContactPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Title */}
+              
               <h1 className="text-4xl lg:text-5xl font-bold mb-8 text-center lg:text-left">
-                Let's Get <span className='text-purple-400'>Touch</span>
+                  Let&apos;s Get <span className='text-purple-400'>Touch</span>
               </h1>
 
               {/* Status Message */}
