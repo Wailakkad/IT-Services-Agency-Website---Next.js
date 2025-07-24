@@ -23,6 +23,34 @@ const sanitizeInput = (input: string): string => {
 
 export async function POST(request: NextRequest) {
   try {
+    // Debug: Log environment variables status
+    console.log('Environment Variables Check:', {
+      hasAdminEmail: !!process.env.ADMIN_EMAIL,
+      hasPassword: !!process.env.ADMIN_EMAIL_PASSWORD,
+      adminEmail: process.env.ADMIN_EMAIL, // Safe to log email
+      passwordLength: process.env.ADMIN_EMAIL_PASSWORD?.length || 0,
+      passwordFirstChar: process.env.ADMIN_EMAIL_PASSWORD?.charAt(0) || 'none',
+      allEnvKeys: Object.keys(process.env).filter(key => key.includes('ADMIN')),
+    });
+
+    // Check if environment variables exist
+    if (!process.env.ADMIN_EMAIL || !process.env.ADMIN_EMAIL_PASSWORD) {
+      console.error('Missing environment variables:', {
+        ADMIN_EMAIL: !!process.env.ADMIN_EMAIL,
+        ADMIN_EMAIL_PASSWORD: !!process.env.ADMIN_EMAIL_PASSWORD,
+      });
+      return NextResponse.json(
+        { 
+          error: 'Server configuration error: Missing email credentials',
+          debug: {
+            hasEmail: !!process.env.ADMIN_EMAIL,
+            hasPassword: !!process.env.ADMIN_EMAIL_PASSWORD,
+          }
+        },
+        { status: 500 }
+      );
+    }
+
     // Parse the request body
     const body: ContactFormData = await request.json();
     
@@ -52,16 +80,55 @@ export async function POST(request: NextRequest) {
       message: sanitizeInput(message),
     };
 
-    // Create nodemailer transporter
-    const transporter = nodemailer.createTransport({
-      service: 'gmail', // You can change this to your email provider
-      auth: {
-        user: process.env.ADMIN_EMAIL, // Your admin email
-        pass: process.env.ADMIN_EMAIL_PASSWORD, // Your app password
-      },
+    // Normalize password (remove spaces for consistency)
+    const normalizedPassword = process.env.ADMIN_EMAIL_PASSWORD.replace(/\s+/g, '');
+    
+    console.log('Password normalization:', {
+      originalLength: process.env.ADMIN_EMAIL_PASSWORD.length,
+      normalizedLength: normalizedPassword.length,
+      hasSpaces: process.env.ADMIN_EMAIL_PASSWORD.includes(' '),
     });
 
-   
+    // Create nodemailer transporter with enhanced configuration
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.ADMIN_EMAIL,
+        pass: normalizedPassword, // Use normalized password without spaces
+      },
+      // Add these options for better compatibility
+      tls: {
+        rejectUnauthorized: false
+      },
+      // Enable debug logging
+      debug: true,
+      logger: true,
+    });
+
+    // Test SMTP connection before sending
+    console.log('Testing SMTP connection...');
+    try {
+      await transporter.verify();
+      console.log('✅ SMTP connection verified successfully');
+    } catch (verifyError) {
+      console.error('❌ SMTP verification failed:', {
+        error: verifyError,
+        message: verifyError instanceof Error ? verifyError.message : 'Unknown error',
+        code: verifyError instanceof Error && 'code' in verifyError ? verifyError.code : 'No code',
+      });
+      
+      return NextResponse.json(
+        { 
+          error: 'Email service authentication failed',
+          details: {
+            message: verifyError instanceof Error ? verifyError.message : 'Unknown error',
+            code: verifyError instanceof Error && 'code' in verifyError ? verifyError.code : 'No code',
+            suggestion: 'Please check your Gmail app password and ensure 2FA is enabled',
+          }
+        },
+        { status: 500 }
+      );
+    }
 
     // Custom email template
     const htmlTemplate = `
@@ -245,46 +312,41 @@ Reply to: ${sanitizedData.email}
       html: htmlTemplate,
     };
 
-    // Send email
-    await transporter.sendMail(mailOptions);
-
-    // Optional: Send confirmation email to the user
-    // const confirmationEmail = {
-    //   from: `"Your Website" <${process.env.ADMIN_EMAIL}>`,
-    //   to: sanitizedData.email,
-    //   subject: `Thank you for contacting us, ${sanitizedData.fullname}!`,
-    //   html: `
-    //     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-    //       <h2 style="color: #333;">Thank you for your message!</h2>
-    //       <p>Hi ${sanitizedData.fullname},</p>
-    //       <p>We've received your message and will get back to you as soon as possible.</p>
-    //       <div style="background: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0;">
-    //         <h3>Your message:</h3>
-    //         <p><strong>Subject:</strong> ${sanitizedData.subject}</p>
-    //         <p><strong>Message:</strong> ${sanitizedData.message}</p>
-    //       </div>
-    //       <p>Best regards,<br>Your Website Team</p>
-    //     </div>
-    //   `,
-    // };
-
+    console.log('Attempting to send email...');
     
+    // Send email
+    const info = await transporter.sendMail(mailOptions);
+    
+    console.log('✅ Email sent successfully:', {
+      messageId: info.messageId,
+      response: info.response,
+    });
 
     return NextResponse.json(
       { 
         message: 'Email sent successfully',
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        messageId: info.messageId
       },
       { status: 200 }
     );
 
   } catch (error) {
-    console.error('Contact form error:', error);
+    console.error('❌ Contact form error:', {
+      error,
+      message: error instanceof Error ? error.message : 'Unknown error',
+      stack: error instanceof Error ? error.stack : 'No stack trace',
+      code: error instanceof Error && 'code' in error ? error.code : 'No code',
+    });
     
     return NextResponse.json(
       { 
         error: 'Failed to send email. Please try again later.',
-        details: process.env.NODE_ENV === 'development' ? error : undefined
+        details: {
+          message: error instanceof Error ? error.message : 'Unknown error',
+          code: error instanceof Error && 'code' in error ? error.code : 'No code',
+          timestamp: new Date().toISOString(),
+        }
       },
       { status: 500 }
     );
@@ -297,4 +359,15 @@ export async function GET() {
     { message: 'Contact API endpoint. Use POST to submit contact forms.' },
     { status: 405 }
   );
+}
+
+// Debug endpoint to check environment variables
+export async function HEAD() {
+  return NextResponse.json({
+    hasAdminEmail: !!process.env.ADMIN_EMAIL,
+    hasPassword: !!process.env.ADMIN_EMAIL_PASSWORD,
+    adminEmail: process.env.ADMIN_EMAIL,
+    passwordLength: process.env.ADMIN_EMAIL_PASSWORD?.length || 0,
+    envKeys: Object.keys(process.env).filter(key => key.includes('ADMIN')),
+  });
 }
