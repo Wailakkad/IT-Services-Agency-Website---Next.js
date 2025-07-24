@@ -27,7 +27,7 @@ interface ContactItemProps {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-black text-white">
       {/* Main Footer Content */}
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

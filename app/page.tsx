@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import  Testimonials  from "@/components/Reviews"
 import  InfiniteSliderBasic  from "@/components/InfinityCarousel"
+import ContactPage from "@/components/Conatct";
 import { Vortex } from "@/components/ui/vortex";
 import { Seo } from "@/components/Seo";
 import Link from "next/link";
@@ -135,6 +136,7 @@ export default function Home() {
       <div id="services">
         <MarketingServices />
       </div>
+      
       <div id="portfolio">
         <HeroParallax products={products} />
       </div>
@@ -199,6 +201,9 @@ export default function Home() {
    
         </div>
       </Vortex>
+    </div>
+    <div>
+      <ContactPage/>
     </div>
       <div id="testimonials">
         <Testimonials />
